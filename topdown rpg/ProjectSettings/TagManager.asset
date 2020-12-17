@@ -47,6 +47,9 @@ TagManager:
   - name: Background
     uniqueID: 163192511
     locked: 0
+  - name: Path
+    uniqueID: 3842240737
+    locked: 0
   - name: Grass
     uniqueID: 1187002787
     locked: 0
@@ -56,6 +59,6 @@ TagManager:
   - name: Player
     uniqueID: 4037624291
     locked: 0
-  - name: Ata
+  - name: Dungeon
     uniqueID: 3953817431
     locked: 0

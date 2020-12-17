@@ -84,7 +84,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("OldVerticalValue", vertical);
         }
 
-
     }
 
     public void SlowPlayerDuringAttack()
