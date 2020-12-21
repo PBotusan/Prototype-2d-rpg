@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     /// <summary>
     /// Gameobject of player used to move the player.
@@ -14,6 +14,7 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] Vector3 offset;
 
 
+
     /// <summary>
     /// Update is called once per frame
     /// </summary>
@@ -22,6 +23,8 @@ public class CameraFollow : MonoBehaviour
         if (target == null)
         {
             Debug.LogWarning("No Target/player Found");
+
+            return;
         }
 
         Vector3 desiredPosition = target.position + offset;

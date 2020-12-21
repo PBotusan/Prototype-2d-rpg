@@ -3264,6 +3264,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 456285562314131323, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: arrow
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 456285562314131323, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: arrowPrefab
+      value: 
+      objectReference: {fileID: 2865602176492065535, guid: f03b9ff753a5849439bee7df340bd7d2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46043ff449988f94c8884c755454655c, type: 3}
 --- !u!1001 &2782095986474238261
@@ -3277,6 +3288,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146084507223116209, guid: 572db1ddcb0894b448b0243b6ad4aa01,
+        type: 3}
+      propertyPath: m_Name
+      value: Thief
       objectReference: {fileID: 0}
     - target: {fileID: 5998821874469217381, guid: 572db1ddcb0894b448b0243b6ad4aa01,
         type: 3}
@@ -3347,11 +3363,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6146084507223116209, guid: 572db1ddcb0894b448b0243b6ad4aa01,
-        type: 3}
-      propertyPath: m_Name
-      value: Thief
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 572db1ddcb0894b448b0243b6ad4aa01, type: 3}

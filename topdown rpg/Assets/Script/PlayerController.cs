@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     /// <summary>
     /// Stores The rigidbody of player.
@@ -28,12 +28,12 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// movedirection for player 'move X'.
     /// </summary>
-    float horizontal;
+    public float horizontal;
 
     /// <summary>
     ///  movedirection for player 'move Y'. 
     /// </summary>
-    float vertical;
+    public float vertical;
     
 
 
