@@ -10,8 +10,14 @@ public class PlayerAttackController : MonoBehaviour
     /// </summary>
     [SerializeField] Animator animator;
 
+    /// <summary>
+    /// prefab that stores the arrow
+    /// </summary>
     [SerializeField] GameObject arrowPrefab;
 
+    /// <summary>
+    /// Playercontroller used from the playercontroller script
+    /// </summary>
     PlayerController playerController;
 
     /// <summary>
@@ -19,13 +25,21 @@ public class PlayerAttackController : MonoBehaviour
     /// </summary>
     bool swordAttack;
 
-    ///timers
+    /// <summary>
+    /// timer used for attack
+    /// </summary>
     float attackTimer = 0.25f;
 
 
-
+    /// <summary>
+    /// Is attacking used to set the bool of the animator
+    /// </summary>
     bool isAttacking = false;
 
+
+    /// <summary>
+    /// Stores the attack type bow/sword
+    /// </summary>
     string attackType;
 
 
