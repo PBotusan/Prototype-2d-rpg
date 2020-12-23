@@ -3,8 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum PlayerState
+{
+    idle,
+    walk,
+    attack,
+    interact,
+    stagger
+}
+
+
+
 public class PlayerController : MonoBehaviour
 {
+    public PlayerState currentPlayerState;
+
     /// <summary>
     /// Stores The rigidbody of player.
     /// </summary>
@@ -42,6 +56,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Start()
     {
+        currentPlayerState = PlayerState.idle;
         playerRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
@@ -61,8 +76,6 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
     }
 
-    
-
     private void MovePlayer()
     {
         playerRigidbody.velocity = new Vector2(horizontal * playerSpeed, vertical * playerSpeed).normalized * playerSpeed;
@@ -80,9 +93,17 @@ public class PlayerController : MonoBehaviour
 
         if (horizontal == 1 || horizontal == -1 || vertical == 1 || vertical == -1)
         {
+            currentPlayerState = PlayerState.walk;
             animator.SetFloat("OldHorizontalValue", horizontal);
             animator.SetFloat("OldVerticalValue", vertical);
         }
+        else if (horizontal == 0 || vertical == 0)
+        {
+            if (currentPlayerState != PlayerState.attack && currentPlayerState != PlayerState.stagger)
+                currentPlayerState = PlayerState.idle;
+
+        }
+
 
     }
 
@@ -94,6 +115,21 @@ public class PlayerController : MonoBehaviour
     public void RevertPlayerSpeed()
     {
         playerSpeed = oldPlayerSpeed;
+    }
+
+    public void KnockBack(float time)
+    {
+        StartCoroutine(KnockBackTime(time));
+    }
+
+    private IEnumerator KnockBackTime(float time)
+    {
+        if (playerRigidbody != null)
+        {
+            yield return new WaitForSeconds(time);
+            playerRigidbody.velocity = Vector2.zero;
+            currentPlayerState = PlayerState.idle;
+        }
     }
 
 }

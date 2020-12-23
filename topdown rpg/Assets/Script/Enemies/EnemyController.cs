@@ -64,8 +64,9 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            //todo states
+            enemyRigidbody.velocity = Vector2.zero;
         }
+
     }
 
     protected virtual void FollowPlayer()
@@ -95,6 +96,22 @@ public class EnemyController : MonoBehaviour
         if (currentState != newState)
         {
             currentState = newState;
+        }
+    }
+
+    public void KnockBack(Rigidbody2D enemyRigidbody, float time)
+    {
+        StartCoroutine(KnockBackTime(enemyRigidbody, time));
+    }
+
+
+    private IEnumerator KnockBackTime(Rigidbody2D enemyRigidbody, float time)
+    {
+        if (enemyRigidbody != null)
+        {
+            yield return new WaitForSeconds(time);
+            enemyRigidbody.velocity = Vector2.zero;
+            currentState = EnemyState.idle;
         }
     }
 }

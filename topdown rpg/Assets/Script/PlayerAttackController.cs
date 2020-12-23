@@ -64,19 +64,27 @@ public class PlayerAttackController : MonoBehaviour
 
     private void PlayerInput()
     {
-        if (Input.GetButtonDown("SwordAttack")) StartCoroutine(AttackAnimation(attackType = "IsAttacking"));
+        if (Input.GetButtonDown("SwordAttack") && playerController.currentPlayerState != PlayerState.attack
+            && playerController.currentPlayerState != PlayerState.stagger)
+            StartCoroutine(AttackAnimation(attackType = "IsAttacking"));
+           
 
-        if (Input.GetButtonDown("RangedAttack")) StartCoroutine(AttackAnimation(attackType = "IsAttackingBow"));
+        if (Input.GetButtonDown("RangedAttack") && playerController.currentPlayerState != PlayerState.attack
+            && playerController.currentPlayerState != PlayerState.stagger)
+            StartCoroutine(AttackAnimation(attackType = "IsAttackingBow"));
     }
-
+       
 
     private IEnumerator AttackAnimation(string attackType)
     {
+        playerController.currentPlayerState = PlayerState.attack;
+
         if (attackType == "IsAttackingBow")
         {
             AttackWithBow();
 
             yield return new WaitForSecondsRealtime(attackTimer);
+            playerController.currentPlayerState = PlayerState.idle;
             yield break;
         }
 
@@ -111,6 +119,7 @@ public class PlayerAttackController : MonoBehaviour
         isAttacking = false;
         animator.SetBool(attackType, isAttacking);
 
+        playerController.currentPlayerState = PlayerState.idle;
         playerController.RevertPlayerSpeed();
     }
 }
