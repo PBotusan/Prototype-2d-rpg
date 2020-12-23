@@ -3,16 +3,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemyState
+{
+    idle,
+    walk,
+    attack,
+    stagger
+}
+
 public class EnemyController : MonoBehaviour
 {
 
+    public EnemyState currentState;
+
+    public float movementSpeed = 3.5f;
+
     private Transform target;
+
+    [SerializeField] Rigidbody2D enemyRigidbody;
 
     [SerializeField]float health = 10;
 
     [SerializeField] float attackDamage = 2;
-
-    [SerializeField]float movementSpeed = 3.5f;
 
     [SerializeField] float followDistance = 8;
 
@@ -27,6 +39,7 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         target = FindObjectOfType<PlayerController>().transform;
+        enemyRigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -45,7 +58,7 @@ public class EnemyController : MonoBehaviour
     {
         var calculateDistance = Vector3.Distance(target.position, transform.position);
 
-        if (calculateDistance <= followDistance && calculateDistance >= attackDistance)
+        if (calculateDistance <= followDistance && calculateDistance > attackDistance)
         {
             FollowPlayer();
         }
@@ -57,7 +70,14 @@ public class EnemyController : MonoBehaviour
 
     protected virtual void FollowPlayer()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
+        if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
+        {
+            Vector3 temp = Vector3.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
+
+            enemyRigidbody.MovePosition(temp);
+            ChangeState(EnemyState.walk);
+        }
+
     }
 
     protected virtual void TakeDamage(float amount)
@@ -69,4 +89,13 @@ public class EnemyController : MonoBehaviour
 
         health -= amount;
     }
+
+    protected virtual void ChangeState(EnemyState newState)
+    {
+        if (currentState != newState)
+        {
+            currentState = newState;
+        }
+    }
 }
+

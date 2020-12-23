@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class Thief : EnemyController
 {
-    
+    private void Start()
+    {
+        
+    }
 }

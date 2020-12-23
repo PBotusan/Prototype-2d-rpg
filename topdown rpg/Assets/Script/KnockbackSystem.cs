@@ -8,13 +8,22 @@ public class KnockbackSystem : MonoBehaviour
 
     public float time;
 
+    [SerializeField] EnemyController enemyController;
+
+    private void Start()
+    {
+        
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             Rigidbody2D enemy = collision.GetComponent<Rigidbody2D>();
             if (enemy != null)
             {
+                enemyController.currentState = EnemyState.stagger;
+
                 Vector2 difference = enemy.transform.position - transform.position;
                 difference = difference.normalized * knockback;
                 enemy.AddForce(difference, ForceMode2D.Impulse);
@@ -30,8 +39,7 @@ public class KnockbackSystem : MonoBehaviour
         {
             yield return new WaitForSeconds(time);
             enemy.velocity = Vector2.zero;
-
+            enemyController.currentState = EnemyState.idle;
         }
     }
-
 }

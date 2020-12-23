@@ -224,8 +224,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37f03296c1f42344ae41beddc6c440d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback: 10
+  knockback: 5
   time: 0.4
+  enemyController: {fileID: 1249174971}
+--- !u!61 &133095433
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133095431}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 0.04, y: 0.04}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &197649049
 GameObject:
   m_ObjectHideFlags: 0
@@ -1580,7 +1607,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2782095986474238261}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1249174973
+--- !u!114 &1249174971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1589,14 +1616,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1249174970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b16a42965e081b94f8e78d1964dfd46a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3571db10bac57e745aa4dd3a31c8bef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
+  movementSpeed: 3.5
+  enemyRigidbody: {fileID: 1249174975}
   health: 10
   attackDamage: 2
-  movementSpeed: 3.5
-  followDistance: 5
-  attackDistance: 0.75
+  followDistance: 8
+  attackDistance: 0.25
 --- !u!61 &1249174974
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1641,9 +1670,35 @@ Rigidbody2D:
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &1249174977
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249174970}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0018102527, y: 0.005351901}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.102223, y: 1.0776556}
+  m_EdgeRadius: 0
 --- !u!4 &1270786148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1886427359462000456, guid: 3b114f66872642d4b9fb80d2dd592ef9,
@@ -3269,6 +3324,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 456285562314131317, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 456285562236629348, guid: 46043ff449988f94c8884c755454655c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3364,6 +3424,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456285562314131322, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 456285562314131322, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.015840828
+      objectReference: {fileID: 0}
+    - target: {fileID: 456285562314131322, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.8868569
+      objectReference: {fileID: 0}
+    - target: {fileID: 456285562314131322, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0019452274
+      objectReference: {fileID: 0}
+    - target: {fileID: 456285562314131322, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.963159
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46043ff449988f94c8884c755454655c, type: 3}
