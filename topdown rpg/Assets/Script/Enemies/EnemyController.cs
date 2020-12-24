@@ -16,13 +16,15 @@ public class EnemyController : MonoBehaviour
 
     public EnemyState currentState;
 
+    [SerializeField] FloatValue maxHealth;
+
     public float movementSpeed = 3.5f;
 
     private Transform target;
 
     [SerializeField] Rigidbody2D enemyRigidbody;
 
-    [SerializeField]float health = 10;
+    private float health;
 
     [SerializeField] float attackDamage = 2;
 
@@ -38,6 +40,8 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        health = maxHealth.initialValue;
+
         target = FindObjectOfType<PlayerController>().transform;
         enemyRigidbody = GetComponent<Rigidbody2D>();
     }
@@ -81,15 +85,7 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    protected virtual void TakeDamage(float amount)
-    {
-        if (health <= 0)
-        {
-            Destroy(gameObject, 1f);            
-        }
-
-        health -= amount;
-    }
+   
 
     protected virtual void ChangeState(EnemyState newState)
     {
@@ -99,9 +95,10 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void KnockBack(Rigidbody2D enemyRigidbody, float time)
+    public void KnockBack(Rigidbody2D enemyRigidbody, float time, float damageAmount)
     {
         StartCoroutine(KnockBackTime(enemyRigidbody, time));
+        TakeDamage(damageAmount);
     }
 
 
@@ -113,6 +110,16 @@ public class EnemyController : MonoBehaviour
             enemyRigidbody.velocity = Vector2.zero;
             currentState = EnemyState.idle;
         }
+    }
+
+    protected virtual void TakeDamage(float amount)
+    {
+        if (health <= 0)
+        {
+            this.gameObject.SetActive(false);
+        }
+
+        health -= amount;
     }
 }
 

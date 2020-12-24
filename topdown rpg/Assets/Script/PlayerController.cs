@@ -129,6 +129,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(time);
             playerRigidbody.velocity = Vector2.zero;
             currentPlayerState = PlayerState.idle;
+            Debug.Log("enemy hit player");
         }
     }
 

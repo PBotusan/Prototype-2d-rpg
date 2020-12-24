@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageController : MonoBehaviour
+public class BreakableObjectController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -18,12 +18,6 @@ public class DamageController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
-        {
-            Debug.Log("Enemy hit");
-
-        }
-
         if (collision.CompareTag("Breakable"))
         {
             Debug.Log("BreakableObject");

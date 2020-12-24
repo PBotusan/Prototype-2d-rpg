@@ -6,6 +6,8 @@ public class KnockbackSystem : MonoBehaviour
 {
     [SerializeField] float knockback;
 
+    [SerializeField] float damageAmount;
+
     public float time = 0.25f;
 
 
@@ -20,17 +22,17 @@ public class KnockbackSystem : MonoBehaviour
                 difference = difference.normalized * knockback;
                 target.AddForce(difference, ForceMode2D.Impulse);
 
-                if (collision.gameObject.CompareTag("Enemy"))
-                {
-                    target.GetComponent<EnemyController>().currentState = EnemyState.stagger;
-                    collision.GetComponent<EnemyController>().KnockBack(target, time);
-                }
-
                 //if (collision.gameObject.CompareTag("Player"))
                 //{
                 //    target.GetComponent<PlayerController>().currentPlayerState = PlayerState.stagger;
                 //    collision.GetComponent<PlayerController>().KnockBack(time);
                 //}
+
+                if (collision.gameObject.CompareTag("Enemy") && collision.isTrigger)
+                {
+                    target.GetComponent<EnemyController>().currentState = EnemyState.stagger;
+                    collision.GetComponent<EnemyController>().KnockBack(target, time, damageAmount);
+                }
 
             }
         }    
