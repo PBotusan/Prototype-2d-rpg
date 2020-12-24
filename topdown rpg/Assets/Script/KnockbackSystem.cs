@@ -22,14 +22,20 @@ public class KnockbackSystem : MonoBehaviour
                 difference = difference.normalized * knockback;
                 target.AddForce(difference, ForceMode2D.Impulse);
 
-                //if (collision.gameObject.CompareTag("Player"))
-                //{
-                //    target.GetComponent<PlayerController>().currentPlayerState = PlayerState.stagger;
-                //    collision.GetComponent<PlayerController>().KnockBack(time);
-                //}
+                if (collision.gameObject.CompareTag("Player"))
+                {
+
+                    if (collision.GetComponent<PlayerController>().currentPlayerState != PlayerState.stagger)
+                    {
+                        target.GetComponent<PlayerController>().currentPlayerState = PlayerState.stagger;
+                        collision.GetComponent<PlayerController>().KnockBack(time, damageAmount);
+                    }
+                }
 
                 if (collision.gameObject.CompareTag("Enemy") && collision.isTrigger)
                 {
+                    
+
                     target.GetComponent<EnemyController>().currentState = EnemyState.stagger;
                     collision.GetComponent<EnemyController>().KnockBack(target, time, damageAmount);
                 }

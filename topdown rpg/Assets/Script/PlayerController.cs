@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
 {
     public PlayerState currentPlayerState;
 
+    public SignalSender playerHealthSignal;
+
+    public FloatValue currentHealth;
+
     /// <summary>
     /// Stores The rigidbody of player.
     /// </summary>
@@ -117,9 +121,15 @@ public class PlayerController : MonoBehaviour
         playerSpeed = oldPlayerSpeed;
     }
 
-    public void KnockBack(float time)
+    public void KnockBack(float time, float damage)
     {
-        StartCoroutine(KnockBackTime(time));
+        currentHealth.initialValue -= damage;
+
+        if (currentHealth.initialValue > 0)
+        {
+            playerHealthSignal.Raise();
+            StartCoroutine(KnockBackTime(time));
+        }
     }
 
     private IEnumerator KnockBackTime(float time)
