@@ -123,12 +123,15 @@ public class PlayerController : MonoBehaviour
 
     public void KnockBack(float time, float damage)
     {
-        currentHealth.initialValue -= damage;
-
-        if (currentHealth.initialValue > 0)
+        currentHealth.RuntimeValue -= damage;
+        playerHealthSignal.Raise();
+        if (currentHealth.RuntimeValue > 0)
         {
-            playerHealthSignal.Raise();
             StartCoroutine(KnockBackTime(time));
+        }
+        else
+        {
+            this.gameObject.SetActive(false);
         }
     }
 

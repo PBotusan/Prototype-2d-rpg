@@ -33,16 +33,12 @@ public class KnockbackSystem : MonoBehaviour
                 }
 
                 if (collision.gameObject.CompareTag("Enemy") && collision.isTrigger)
-                {
-                    
-
+                {  
                     target.GetComponent<EnemyController>().currentState = EnemyState.stagger;
                     collision.GetComponent<EnemyController>().KnockBack(target, time, damageAmount);
                 }
 
             }
         }    
-    }
-
-    
+    }    
 }
