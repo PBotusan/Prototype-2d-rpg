@@ -19,8 +19,8 @@ TagManager:
   - 
   - 
   - Floor
+  - Floor2
   - Path
-  - 
   - 
   - 
   - 
@@ -69,4 +69,7 @@ TagManager:
     locked: 0
   - name: Dungeon
     uniqueID: 3953817431
+    locked: 0
+  - name: wall
+    uniqueID: 902503449
     locked: 0

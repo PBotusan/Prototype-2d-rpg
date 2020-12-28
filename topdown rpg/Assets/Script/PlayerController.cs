@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     public FloatValue currentHealth;
 
+    public VectorValueOfPlayer startingPosition;
+
     /// <summary>
     /// Stores The rigidbody of player.
     /// </summary>
@@ -65,6 +67,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         oldPlayerSpeed = playerSpeed;
+        transform.position = startingPosition.initialValue;
     }
 
     /// <summary>

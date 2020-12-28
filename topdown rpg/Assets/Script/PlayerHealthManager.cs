@@ -32,9 +32,9 @@ public class PlayerHealthManager : MonoBehaviour
     public void UpdateHearts()
     {
         float tempHealth = playerCurrentHealth.RuntimeValue / 2;
-        for (int i = 1; i < heartContainers.initialValue; i++)
+        for (int i = 0; i < heartContainers.initialValue; i++)
         {
-            if (i <= tempHealth)
+            if (i <= tempHealth - 1)
             {
                 //full
                 hearts[i].sprite = fullHeart;
