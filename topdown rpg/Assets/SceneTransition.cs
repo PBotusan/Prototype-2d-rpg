@@ -17,6 +17,10 @@ public class SceneTransition : MonoBehaviour
 
     [SerializeField] float fadeTime;
 
+    //todo dungeon fading
+    //todo cave fading
+    //todo death fading
+    //todo gameover fading
 
     private void Awake()
     {
