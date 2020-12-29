@@ -20,7 +20,7 @@ public class SceneTransition : MonoBehaviour
     //todo dungeon fading
     //todo cave fading
     //todo death fading
-    //todo gameover fading
+    //todo gameover fadin
 
     private void Awake()
     {
