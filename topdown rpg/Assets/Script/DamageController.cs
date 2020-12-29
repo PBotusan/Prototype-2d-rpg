@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BreakableObjectController : MonoBehaviour
+public class DamageController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
