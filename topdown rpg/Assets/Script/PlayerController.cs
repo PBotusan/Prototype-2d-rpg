@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// All the states used by player.
+/// </summary>
 public enum PlayerState
 {
     idle,
@@ -13,16 +15,26 @@ public enum PlayerState
     stagger
 }
 
-
-
 public class PlayerController : MonoBehaviour
 {
+    /// <summary>
+    /// The current state of the player
+    /// </summary>
     public PlayerState currentPlayerState;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public SignalSender playerHealthSignal;
 
+    /// <summary>
+    /// current health amount
+    /// </summary>
     public FloatValue currentHealth;
 
+    /// <summary>
+    /// startingpos of player when starting the game
+    /// </summary>
     public VectorValueOfPlayer startingPosition;
 
     /// <summary>
@@ -36,9 +48,14 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     [SerializeField] float playerSpeed = 5f;
 
-
+    /// <summary>
+    /// playerspeed used to revert back when it is changed.
+    /// </summary>
     float oldPlayerSpeed = 5;
 
+    /// <summary>
+    /// let the player stop with walking.
+    /// </summary>
     float speedDuringAttacks = 0;
 
 
@@ -83,6 +100,9 @@ public class PlayerController : MonoBehaviour
         MovePlayer();
     }
 
+    /// <summary>
+    /// move the player and change the animtor velocity
+    /// </summary>
     private void MovePlayer()
     {
         playerRigidbody.velocity = new Vector2(horizontal * playerSpeed, vertical * playerSpeed).normalized * playerSpeed;
@@ -114,6 +134,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
     public void SlowPlayerDuringAttack()
     {
         playerSpeed = speedDuringAttacks;
@@ -124,6 +145,13 @@ public class PlayerController : MonoBehaviour
         playerSpeed = oldPlayerSpeed;
     }
 
+
+    /// <summary>
+    /// starts the coroutine.
+    /// </summary>
+    /// <param name="enemyRigidbody"> enemyrigidbody</param>
+    /// <param name="time"> duration in seconds </param>
+    /// <param name="damageAmount"> amount of damage.</param>
     public void KnockBack(float time, float damage)
     {
         currentHealth.RuntimeValue -= damage;
@@ -138,6 +166,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Knockback time coroutine. puts enemy on idle after the staggered state 
+    /// </summary>
+    /// <param name="enemyRigidbody"> enemyrigidbody</param>
+    /// <param name="time"> duration in seconds </param>
+    /// <returns></returns>
     private IEnumerator KnockBackTime(float time)
     {
         if (playerRigidbody != null)

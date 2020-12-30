@@ -5,9 +5,15 @@ using UnityEngine;
 [CreateAssetMenu] // MAKE object
 public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
 {
+    /// <summary>
+    /// Initial value used to change the value.
+    /// </summary>
     public float initialValue;
 
     private float runtimeValue;
+    /// <summary>
+    /// make private public with get set.
+    /// </summary>
     public float RuntimeValue
     {
         get { return runtimeValue; }

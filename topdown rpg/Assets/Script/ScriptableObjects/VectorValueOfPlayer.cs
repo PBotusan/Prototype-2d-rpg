@@ -11,6 +11,9 @@ public class VectorValueOfPlayer : ScriptableObject, ISerializationCallbackRecei
     /// </summary>
     public Vector2 initialValue;
 
+    /// <summary>
+    /// The world position used when player resets the game.
+    /// </summary>
     public Vector2 defaultValue;
 
     public void OnAfterDeserialize()

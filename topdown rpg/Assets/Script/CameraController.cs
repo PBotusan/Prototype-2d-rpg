@@ -9,8 +9,14 @@ public class CameraController : MonoBehaviour
     /// </summary>
     [SerializeField] Transform target;
 
+    /// <summary>
+    /// Smoothing speed, used to give slight bump when you stop.
+    /// </summary>
     [SerializeField] float smoothSpeed = 0.1f;
 
+    /// <summary>
+    /// offset used as distance for camera.
+    /// </summary>
     [SerializeField] Vector3 offset;
 
 

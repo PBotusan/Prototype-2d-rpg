@@ -4,13 +4,25 @@ using UnityEngine;
 
 public class KnockbackSystem : MonoBehaviour
 {
+    /// <summary>
+    /// Knockbak power
+    /// </summary>
     [SerializeField] float knockback;
 
+    /// <summary>
+    /// The amount of damage done by enemy/player
+    /// </summary>
     [SerializeField] float damageAmount;
 
+    /// <summary>
+    /// amount in seconds
+    /// </summary>
     public float time = 0.25f;
 
-
+    /// <summary>
+    /// compares the tags and sends the correct value to the coroutine in player or enemy.
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Player"))

@@ -28,17 +28,6 @@ public class PlaceNameController : MonoBehaviour
     /// </summary>
     [SerializeField] Text placeText;
 
-
-
-    /// <summary>
-    ///  Start is called before the first frame update
-    /// </summary>
-    void Start()
-    {
-        
-    }
-
-
     
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,6 +41,10 @@ public class PlaceNameController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// shows placename when in the correct trigger.
+    /// </summary>
+    /// <returns>  WaitForSeconds(4f); </returns>
     private IEnumerator PlaceNameCoroutine()
     {
         text.SetActive(true);
