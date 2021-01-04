@@ -58,6 +58,9 @@ TagManager:
   - name: Grass
     uniqueID: 1187002787
     locked: 0
+  - name: Sign
+    uniqueID: 126965515
+    locked: 0
   - name: Attack
     uniqueID: 2123284269
     locked: 0
