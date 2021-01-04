@@ -2246,7 +2246,7 @@ PrefabInstance:
     - target: {fileID: 8302571432984195675, guid: 1c86cf1ccc01e1248ae38b9805dc3c2e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.75112
+      value: 27.05
       objectReference: {fileID: 0}
     - target: {fileID: 8302571432984195675, guid: 1c86cf1ccc01e1248ae38b9805dc3c2e,
         type: 3}
@@ -3497,5 +3497,22 @@ PrefabInstance:
       propertyPath: playerPos.y
       value: 83
       objectReference: {fileID: 0}
+    - target: {fileID: 3202005029362377543, guid: 4ae93841b36b74f4ab4344f661f94b52,
+        type: 3}
+      propertyPath: fadeTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3202005029362377543, guid: 4ae93841b36b74f4ab4344f661f94b52,
+        type: 3}
+      propertyPath: fadeOutPanel
+      value: 
+      objectReference: {fileID: 6736483996120504544, guid: 692cae56100c26843a1376d2737eb138,
+        type: 3}
+    - target: {fileID: 3202005029362377543, guid: 4ae93841b36b74f4ab4344f661f94b52,
+        type: 3}
+      propertyPath: fadeInPanel
+      value: 
+      objectReference: {fileID: 7602794164969202251, guid: d22bba13b9141fd4a84d3bd6d418b8fa,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ae93841b36b74f4ab4344f661f94b52, type: 3}
