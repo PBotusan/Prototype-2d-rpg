@@ -4,27 +4,26 @@ using UnityEngine;
 
 public class BreakableObjectsController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Animator animator;
+    BoxCollider2D boxCollider2D;
+
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
     void Start()
     {
-        
+        boxCollider2D = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     /// <summary>
     /// on trigger enter used to break objects.
     /// </summary>
-    /// <param name="collision"></param>
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void DestroyPot()
     {
-        if (collision.CompareTag("Breakable"))
-        {
-            Debug.Log("BreakableObject");
-        }
+        animator.SetBool("Destroyed", true);
+        boxCollider2D.enabled = false;
+        Debug.Log("BreakableObject");
     }
 }
