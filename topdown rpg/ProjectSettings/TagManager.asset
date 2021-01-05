@@ -67,9 +67,6 @@ TagManager:
   - name: Attack
     uniqueID: 2123284269
     locked: 0
-  - name: Player
-    uniqueID: 4037624291
-    locked: 0
   - name: Enemy
     uniqueID: 1530495907
     locked: 0
@@ -78,4 +75,7 @@ TagManager:
     locked: 0
   - name: wall
     uniqueID: 902503449
+    locked: 0
+  - name: Player
+    uniqueID: 4037624291
     locked: 0

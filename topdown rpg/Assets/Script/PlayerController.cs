@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
     ///  movedirection for player 'move Y'. 
     /// </summary>
     public float vertical;
-    
+
 
 
     /// <summary>
@@ -99,6 +99,7 @@ public class PlayerController : MonoBehaviour
     {
         MovePlayer();
     }
+
 
     /// <summary>
     /// move the player and change the animtor velocity
