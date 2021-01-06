@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Thief : EnemyController
 {
-    private void Start()
-    {
-        
-    }
+    
 }

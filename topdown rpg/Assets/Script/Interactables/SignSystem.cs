@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SignSystem : MonoBehaviour
+public class SignSystem : InteractableSystem
 {
-    //Singal listeners
-    [SerializeField] SignalSender interactOn;
-    [SerializeField] SignalSender interactOf;
-
 
     [SerializeField] GameObject dialogBox;
 
@@ -16,10 +12,6 @@ public class SignSystem : MonoBehaviour
 
     [SerializeField] string dialog;
 
-    /// <summary>
-    /// Activates if player is in range.
-    /// </summary>
-    [SerializeField] bool playerInRange;
 
 
 
@@ -39,15 +31,6 @@ public class SignSystem : MonoBehaviour
             }
         }
         
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            interactOn.Raise();
-            playerInRange = true;
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

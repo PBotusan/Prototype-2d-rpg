@@ -37,12 +37,12 @@ public class EnemyController : MonoBehaviour
     /// <summary>
     /// target/player transform, used to follow the player target position.
     /// </summary>
-    private Transform target;
+    [SerializeField] protected Transform target;
 
     /// <summary>
     /// Enemy rigidbody used to move the enemy
     /// </summary>
-    [SerializeField] Rigidbody2D enemyRigidbody;
+    [SerializeField] protected Rigidbody2D enemyRigidbody;
 
     /// <summary>
     /// Enemy health
@@ -97,7 +97,7 @@ public class EnemyController : MonoBehaviour
     /// <summary>
     /// calculates the difference between enemy and player.
     /// </summary>
-    private void CalculateDistance()
+    protected void CalculateDistance()
     {
         var calculateDistance = Vector3.Distance(target.position, transform.position);
 
