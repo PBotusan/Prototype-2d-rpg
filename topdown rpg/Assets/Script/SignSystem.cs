@@ -5,19 +5,23 @@ using UnityEngine.UI;
 
 public class SignSystem : MonoBehaviour
 {
+    //Singal listeners
+    [SerializeField] SignalSender interactOn;
+    [SerializeField] SignalSender interactOf;
+
+
     [SerializeField] GameObject dialogBox;
+
     [SerializeField] Text dialogText;
+
     [SerializeField] string dialog;
 
+    /// <summary>
+    /// Activates if player is in range.
+    /// </summary>
     [SerializeField] bool playerInRange;
 
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -41,6 +45,7 @@ public class SignSystem : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            interactOn.Raise();
             playerInRange = true;
         }
     }
@@ -49,6 +54,7 @@ public class SignSystem : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            interactOf.Raise();
             playerInRange = false;
             dialogBox.SetActive(false);
         }
