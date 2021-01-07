@@ -20,9 +20,30 @@ public class Inventory : ScriptableObject
     /// </summary>
     [SerializeField] int numberOfKeys;
 
-    public Item CurrentItem { get { return currentItem; } }
+    public Item CurrentItem { get { return currentItem; } set { currentItem = value; } }
 
     public List<Item> Items { get { return items; } }
 
     public int NumberOfKeys { get { return numberOfKeys; } }
+
+
+    /// <summary>
+    /// add item to inventory, if key add in different slot.
+    /// </summary>
+    /// <param name="addItem"></param>
+    public void AddItem(Item addItem)
+    {
+        if (addItem.IsKey)
+        {
+            // if key add to keyslot
+            numberOfKeys++;
+        }
+        else
+        {
+            if (!items.Contains(addItem))
+            {
+                items.Add(addItem);
+            }
+        }
+    }
 }

@@ -15,7 +15,7 @@ public class TreasureChest : InteractableSystem
     /// <summary>
     /// Show if chest is already opened.
     /// </summary>
-    [SerializeField] bool open;
+    [SerializeField] bool chestOpen;
 
     /// <summary>
     /// Signalsender used to show the player item.
@@ -32,13 +32,19 @@ public class TreasureChest : InteractableSystem
     /// </summary>
     [SerializeField] Text dialogText;
 
+     [SerializeField] BoxCollider2D boxColliderTrigger;
+
+    /// <summary>
+    /// used as temporary way to shwo closed chest.
+    /// </summary>
+    [SerializeField] SpriteRenderer changeChestColor;
 
 
     void Update()
     {
         if (Input.GetButtonDown("Interact") && playerInRange)
         {
-            if (!open)
+            if (!chestOpen)
             {
                 //Open the Chest
                 OpenChest();
@@ -51,19 +57,29 @@ public class TreasureChest : InteractableSystem
         }
     }
 
+    /// <summary>
+    /// Opens chest, Dialog window on, and add item to inventory list. change dialog text of item show item.
+    /// Raise two signals: raise item to show item and interaction
+    /// </summary>
     public void OpenChest()
     {
         dialogBox.SetActive(true);
-       // dialogText.text = contents.itemDescription;
+        dialogText.text = contents.ItemDescription;
+        playerInventory.AddItem(contents);
+        playerInventory.CurrentItem = contents;
+        chestOpen = true;
 
-       // playerInventory.currentItem;
-
-
+        raiseItem.Raise();
+        interactOn.Raise();
     }
 
     public void UsedChest()
     {
+        dialogBox.SetActive(false);
+        interactOf.Raise();
+        raiseItem.Raise();
+        boxColliderTrigger.enabled = false;
+        changeChestColor.color = new Color(0f, 0f, 0f, 255f);
 
     }
-
 }

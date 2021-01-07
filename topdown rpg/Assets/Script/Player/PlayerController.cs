@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     [SerializeField] float playerSpeed = 5f;
 
+    [SerializeField] Animator animator;
+
     /// <summary>
     /// playerspeed used to revert back when it is changed.
     /// </summary>
@@ -58,8 +60,10 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     float speedDuringAttacks = 0;
 
+    [SerializeField] Inventory playerInventory;
 
-    [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer recievedItemSprite;
+   
 
 
     /// <summary>
@@ -116,6 +120,12 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void PlayerInput()
     {
+        // is the player interacting, add to pauze everything.
+        if (currentPlayerState == PlayerState.interact)
+        {
+            return;
+        }
+
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
@@ -133,6 +143,26 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    public void RaiseItem()
+    {
+        if (playerInventory.CurrentItem != null)
+        {
+            if (currentPlayerState != PlayerState.interact)
+            {
+                //animator hold hands up.
+                currentPlayerState = PlayerState.interact;
+                recievedItemSprite.sprite = playerInventory.CurrentItem.ItemSprite;
+            }
+            else
+            {
+                // set anim to false
+                currentPlayerState = PlayerState.idle;
+                recievedItemSprite.sprite = null;
+                playerInventory.CurrentItem = null;
+            }
+        }
     }
 
 

@@ -77,23 +77,31 @@ public class PlayerAttackController : MonoBehaviour
 
     private IEnumerator AttackAnimation(string attackType)
     {
-        playerController.currentPlayerState = PlayerState.attack;
-
-        if (attackType == "IsAttackingBow")
+        if (playerController.currentPlayerState != PlayerState.interact)
         {
-            AttackWithBow();
+            playerController.currentPlayerState = PlayerState.attack;
 
+            if (attackType == "IsAttackingBow")
+            {
+                AttackWithBow();
+
+                yield return new WaitForSecondsRealtime(attackTimer);
+                if (playerController.currentPlayerState != PlayerState.interact)
+                {
+                    playerController.currentPlayerState = PlayerState.idle;
+                }
+                yield break;
+            }
+
+            isAttacking = true;
+            animator.SetBool(attackType, isAttacking);
+            playerController.SlowPlayerDuringAttack();
             yield return new WaitForSecondsRealtime(attackTimer);
-            playerController.currentPlayerState = PlayerState.idle;
-            yield break;
+
+            StopAttacking(attackType);
+
         }
-
-        isAttacking = true;
-        animator.SetBool(attackType, isAttacking);
-        playerController.SlowPlayerDuringAttack();
-        yield return new WaitForSecondsRealtime(attackTimer);
-
-        StopAttacking(attackType);
+        
     }
 
     private void AttackWithBow()
@@ -119,7 +127,11 @@ public class PlayerAttackController : MonoBehaviour
         isAttacking = false;
         animator.SetBool(attackType, isAttacking);
 
-        playerController.currentPlayerState = PlayerState.idle;
+        if (playerController.currentPlayerState != PlayerState.interact)
+        {
+            playerController.currentPlayerState = PlayerState.idle;
+        }
+
         playerController.RevertPlayerSpeed();
     }
 }
