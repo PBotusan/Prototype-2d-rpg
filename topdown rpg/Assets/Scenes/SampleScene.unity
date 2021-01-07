@@ -13082,6 +13082,12 @@ MonoBehaviour:
   interactOn: {fileID: 11400000, guid: dd4a0d847ceddc54e83db90ec5476fbc, type: 2}
   interactOf: {fileID: 11400000, guid: 74e9c992687af7947a4516171b13a6ec, type: 2}
   playerInRange: 0
+  contents: {fileID: 0}
+  playerInventory: {fileID: 0}
+  open: 0
+  raiseItem: {fileID: 0}
+  dialogBox: {fileID: 0}
+  dialogText: {fileID: 0}
 --- !u!61 &691904051
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35738,6 +35744,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4965984495099918739, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.658
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: brokenPot
       value: 

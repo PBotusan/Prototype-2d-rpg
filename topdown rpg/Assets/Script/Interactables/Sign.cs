@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SignSystem : InteractableSystem
+public class Sign : InteractableSystem
 {
 
     [SerializeField] GameObject dialogBox;
