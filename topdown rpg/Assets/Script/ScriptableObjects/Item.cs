@@ -20,5 +20,11 @@ public class Item : ScriptableObject
     /// </summary>
     [SerializeField] bool isKey;
 
-   
+
+    public Sprite ItemSprite { get { return itemSprite; } }
+
+    public string ItemDescription { get { return itemDescription; } }
+
+    public bool IsKey { get { return isKey; } }
+
 }

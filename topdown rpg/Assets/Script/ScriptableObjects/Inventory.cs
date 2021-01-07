@@ -19,5 +19,10 @@ public class Inventory : ScriptableObject
     /// The amount of keys the player has.
     /// </summary>
     [SerializeField] int numberOfKeys;
-    
+
+    public Item CurrentItem { get { return currentItem; } }
+
+    public List<Item> Items { get { return items; } }
+
+    public int NumberOfKeys { get { return numberOfKeys; } }
 }

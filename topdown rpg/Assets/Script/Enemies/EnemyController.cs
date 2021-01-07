@@ -75,7 +75,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth.initialValue;
+        health = maxHealth.InitialValue;
 
         target = FindObjectOfType<PlayerController>().transform;
         enemyRigidbody = GetComponent<Rigidbody2D>();

@@ -8,22 +8,16 @@ public class FloatValue : ScriptableObject, ISerializationCallbackReceiver
     /// <summary>
     /// Initial value used to change the value.
     /// </summary>
-    public float initialValue;
+    [SerializeField] float initialValue;
+    public float InitialValue{ get { return initialValue; } }
 
-    private float runtimeValue;
-    /// <summary>
-    /// make private public with get set.
-    /// </summary>
-    public float RuntimeValue
-    {
-        get { return runtimeValue; }
-        set { runtimeValue = value; }   
-    }
+    [SerializeField] float runtimeValue;
+    public float RuntimeValue {get { return runtimeValue; } set { runtimeValue = value; } }
    
 
     public void OnAfterDeserialize()
     {
-        RuntimeValue = initialValue;
+        runtimeValue = initialValue;
     }
 
     public void OnBeforeSerialize()
