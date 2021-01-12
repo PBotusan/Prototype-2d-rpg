@@ -19,6 +19,7 @@ public class CameraController : MonoBehaviour
     /// </summary>
     [SerializeField] Vector3 offset;
 
+    [SerializeField] Vector2 maxPosition;
 
     private void Start()
     {

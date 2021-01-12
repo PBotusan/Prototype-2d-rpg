@@ -24,7 +24,7 @@ public class Inventory : ScriptableObject
 
     public List<Item> Items { get { return items; } }
 
-    public int NumberOfKeys { get { return numberOfKeys; } }
+    public int NumberOfKeys { get { return numberOfKeys; } set { numberOfKeys = value; } }
 
 
     /// <summary>
