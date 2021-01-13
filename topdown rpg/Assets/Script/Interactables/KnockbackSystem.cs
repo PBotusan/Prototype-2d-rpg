@@ -37,7 +37,7 @@ public class KnockbackSystem : MonoBehaviour
                 difference = difference.normalized * knockback;
                 target.AddForce(difference, ForceMode2D.Impulse);
 
-                if (collision.gameObject.CompareTag("Player"))
+                if (collision.gameObject.CompareTag("Player") && collision.isTrigger)
                 {
 
                     if (collision.GetComponent<PlayerController>().currentPlayerState != PlayerState.stagger)

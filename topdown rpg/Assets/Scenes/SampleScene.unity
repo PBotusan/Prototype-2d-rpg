@@ -31810,24 +31810,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29facdc32d1da6442b13868de8fdf1b3, type: 3}
---- !u!1 &1983205145 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2582584798014366220, guid: 46043ff449988f94c8884c755454655c,
-    type: 3}
-  m_PrefabInstance: {fileID: 456285563503116513}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1983205149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1983205145}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69eaeff92b81b3b44ba3c92843cfb6df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1984738836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7799498429693529180, guid: 65f92a8a0e2446444ad2f177c5cbe9f4,
@@ -37319,16 +37301,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 857874301301875526, guid: 1c86cf1ccc01e1248ae38b9805dc3c2e,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1522080115}
     - target: {fileID: 8302571432984195674, guid: 1c86cf1ccc01e1248ae38b9805dc3c2e,
         type: 3}
       propertyPath: m_Name
       value: CameraHolder
       objectReference: {fileID: 0}
+    - target: {fileID: 857874301301875526, guid: 1c86cf1ccc01e1248ae38b9805dc3c2e,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1522080115}
     - target: {fileID: 8302571432984195675, guid: 1c86cf1ccc01e1248ae38b9805dc3c2e,
         type: 3}
       propertyPath: m_LocalPosition.x
