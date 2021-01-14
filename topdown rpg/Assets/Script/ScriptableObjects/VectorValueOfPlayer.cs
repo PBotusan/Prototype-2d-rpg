@@ -16,6 +16,9 @@ public class VectorValueOfPlayer : ScriptableObject, ISerializationCallbackRecei
     /// </summary>
     public Vector2 defaultValue;
 
+    
+
+
     public void OnAfterDeserialize()
     {
         initialValue = defaultValue;

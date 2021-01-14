@@ -21,9 +21,26 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    /// <summary>
+    /// Min position of camera.
+    /// </summary>
+   // [SerializeField] VectorValueOfPlayer camMin;
+
+    /// <summary>
+    /// Max position of camera.
+    /// </summary>
+    //[SerializeField] VectorValueOfPlayer camMax;
+
+   // [SerializeField] Vector2 minPosition;
+   // [SerializeField] Vector2 maxPosition;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+
+        // use when i have min and max values
+       // maxPosition = camMax.initialValue;
+       // minPosition = camMin.initialValue;
     }
 
     /// <summary>

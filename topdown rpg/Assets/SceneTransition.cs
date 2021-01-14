@@ -10,17 +10,25 @@ public class SceneTransition : MonoBehaviour
     /// Current playerposition
     /// </summary>
     [SerializeField] Vector2 playerPos;
+    [SerializeField] VectorValueOfPlayer playerStorage;
+
+    [SerializeField] Vector2 cameraNewMinPos;
+    [SerializeField] VectorValueOfPlayer cameraMinPos;
+
+    [SerializeField] Vector2 cameraNewMaxPos;
+    [SerializeField] VectorValueOfPlayer cameraMaxPos;
+
 
     [SerializeField] GameObject fadeInPanel;
-
     [SerializeField] GameObject fadeOutPanel;
-
     [SerializeField] float fadeTime;
 
     //todo dungeon fading
     //todo cave fading
     //todo death fading
     //todo gameover fadin
+
+    
 
     private void Awake()
     {
@@ -56,6 +64,8 @@ public class SceneTransition : MonoBehaviour
         }
 
         yield return new WaitForSeconds(fadeTime);
+        //reset camera pos
+        ResetCameraBounds();
 
         //fade after loading
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(loadScene);
@@ -64,5 +74,14 @@ public class SceneTransition : MonoBehaviour
         {
             yield return null;
         }
+    }
+
+    /// <summary>
+    /// Reset the camera position to new value position.
+    /// </summary>
+    public void ResetCameraBounds()
+    {
+        cameraMaxPos.initialValue = cameraNewMaxPos;
+        cameraMinPos.initialValue = cameraNewMinPos;
     }
 }
