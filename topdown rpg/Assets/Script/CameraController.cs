@@ -19,6 +19,12 @@ public class CameraController : MonoBehaviour
     /// </summary>
     [SerializeField] Vector3 offset;
 
+    [SerializeField] Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     /// <summary>
     /// Update is called once per frame
@@ -37,5 +43,20 @@ public class CameraController : MonoBehaviour
 
         Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothPosition;
+    }
+
+    /// <summary>
+    /// Small screen shake/kick when enemy hit player. 
+    /// </summary>
+    public void KickScreen()
+    {
+        animator.SetBool("Kick", true);
+        KickCoroutine();
+    }
+
+    private IEnumerator KickCoroutine()
+    {
+        yield return new WaitForSeconds(0.6f);
+        animator.SetBool("Kick", false);
     }
 }

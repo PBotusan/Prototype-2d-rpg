@@ -109,7 +109,7 @@ public class PlayerAttackController : MonoBehaviour
         //todo shoot when standing still
 
         playerController.SlowPlayerDuringAttack();
-        Vector2 shootingDirection = new Vector2(playerController.horizontal, playerController.vertical);
+        Vector2 shootingDirection = new Vector2(playerController.Horizontal, playerController.Vertical);
         shootingDirection.Normalize();
 
         GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);

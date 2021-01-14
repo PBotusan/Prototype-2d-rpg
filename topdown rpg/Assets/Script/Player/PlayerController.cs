@@ -63,19 +63,28 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Inventory playerInventory;
 
     [SerializeField] SpriteRenderer recievedItemSprite;
-   
+
 
 
     /// <summary>
     /// movedirection for player 'move X'.
     /// </summary>
-    public float horizontal;
+    private float horizontal;
+    public float Horizontal { get { return horizontal; } set { horizontal = value; } }
+
+
 
     /// <summary>
     ///  movedirection for player 'move Y'. 
     /// </summary>
-    public float vertical;
+    private float vertical;
+    public float Vertical { get { return vertical; } set { vertical = value; } }
 
+
+    /// <summary>
+    /// Use to raise signal for screen shake/kick after hit.
+    /// </summary>
+    [SerializeField] SignalSender playerHit;
 
 
     /// <summary>
@@ -205,6 +214,8 @@ public class PlayerController : MonoBehaviour
     /// <returns></returns>
     private IEnumerator KnockBackTime(float time)
     {
+        playerHit.Raise();
+
         if (playerRigidbody != null)
         {
             yield return new WaitForSeconds(time);

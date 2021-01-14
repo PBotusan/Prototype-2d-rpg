@@ -6,6 +6,8 @@ public class CoinPickUp : PickUpController
 {
     [SerializeField] Inventory playerInventory;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
