@@ -148,10 +148,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161a7cfe5b929ca448e2b12f0ec14343, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interaction: {fileID: 11400000, guid: 74e9c992687af7947a4516171b13a6ec, type: 2}
+  playerInRange: 0
   dialogBox: {fileID: 0}
   dialogText: {fileID: 0}
   dialog: 
-  playerInRange: 0
 --- !u!1 &9174018662495074428
 GameObject:
   m_ObjectHideFlags: 0

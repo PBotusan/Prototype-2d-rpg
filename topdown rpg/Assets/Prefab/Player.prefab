@@ -411,7 +411,6 @@ GameObject:
   - component: {fileID: 2231906760694301772}
   - component: {fileID: 1142216600782735090}
   - component: {fileID: 7534641935097275014}
-  - component: {fileID: 552508350385988000}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -508,8 +507,7 @@ MonoBehaviour:
   animator: {fileID: 2582584798137022246}
   playerInventory: {fileID: 0}
   recievedItemSprite: {fileID: 0}
-  horizontal: 0
-  vertical: 0
+  playerHit: {fileID: 0}
 --- !u!50 &2582584798137022249
 Rigidbody2D:
   serializedVersion: 4
@@ -629,6 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionSymbol: {fileID: 0}
+  interactionActive: 0
 --- !u!114 &7534641935097275014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -656,22 +655,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &552508350385988000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2582584798137022251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca86a447436a2b246b69e862ba61ef38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  signalSender: {fileID: 0}
-  signalEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &2582584798693688031
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,15 +9,20 @@ public class InteractSystem : MonoBehaviour
     /// </summary>
     [SerializeField] GameObject interactionSymbol;
 
+    [SerializeField] bool interactionActive = false;
 
-    public void InteractionEnabled()
+
+    public void ToggleContextSymbol()
     {
-        interactionSymbol.SetActive(true);
-    }
+        interactionActive = !interactionActive;
+        if (interactionActive)
+        {
+            interactionSymbol.SetActive(interactionActive);
+        }
+        else
+        {
+            interactionSymbol.SetActive(interactionActive);
+        }
 
-    public void InteractionDisabled()
-    {
-        interactionSymbol.SetActive(false);
     }
-
 }

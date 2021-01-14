@@ -70,16 +70,15 @@ public class TreasureChest : InteractableSystem
         chestOpen = true;
 
         raiseItem.Raise();
-        interactOn.Raise();
+        interaction.Raise();
     }
 
     public void UsedChest()
     {
         dialogBox.SetActive(false);
-        interactOf.Raise();
+        interaction.Raise();
         raiseItem.Raise();
         boxColliderTrigger.enabled = false;
         changeChestColor.color = new Color(0f, 0f, 0f, 255f);
-
     }
 }

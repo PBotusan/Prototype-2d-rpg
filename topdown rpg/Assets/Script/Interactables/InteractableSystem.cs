@@ -5,9 +5,7 @@ using UnityEngine;
 public class InteractableSystem : MonoBehaviour
 {
     //Singal listeners
-    [SerializeField] protected SignalSender interactOn;
-    [SerializeField] protected SignalSender interactOf;
-
+    [SerializeField] protected SignalSender interaction;
 
     /// <summary>
     /// Activates if player is in range.
@@ -29,18 +27,18 @@ public class InteractableSystem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && collision.isTrigger)
+        if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            interactOn.Raise();
+            interaction.Raise();
             playerInRange = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            interactOf.Raise();
+            interaction.Raise();
             playerInRange = false;
         }
     }

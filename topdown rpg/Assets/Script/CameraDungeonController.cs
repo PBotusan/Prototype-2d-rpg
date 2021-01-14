@@ -25,8 +25,11 @@ public class CameraDungeonController : MonoBehaviour
     [SerializeField] Vector2 minPosition;
     public Vector2 MinPosition { get { return minPosition; } set { minPosition = value; } }
 
+    [SerializeField] Animator animator;
+
     private void Start()
     {
+        animator = GetComponent<Animator>();
         // transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
     }
 
@@ -52,7 +55,20 @@ public class CameraDungeonController : MonoBehaviour
 
         Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
         transform.position = smoothPosition;
+    }
 
+    /// <summary>
+    /// Small screen shake/kick when enemy hit player. 
+    /// </summary>
+    public void KickScreen()
+    {
+        animator.SetBool("Kick", true);
+        KickCoroutine();
+    }
 
+    private IEnumerator KickCoroutine()
+    {
+        yield return new WaitForSeconds(0.6f);
+        animator.SetBool("Kick", false);
     }
 }
