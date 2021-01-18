@@ -25,13 +25,13 @@ public class EnemyController : MonoBehaviour
     /// <summary>
     /// Floatvalue scriptable object, used for health.
     /// </summary>
-    [SerializeField] FloatValue maxHealth;
+    [SerializeField] protected FloatValue maxHealth;
 
 
     /// <summary>
     /// Movementspeed used for walking enemy.
     /// </summary>
-    public float movementSpeed = 3.5f;
+    [SerializeField] protected float movementSpeed = 3.5f;
 
 
     /// <summary>
@@ -44,30 +44,32 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     [SerializeField] protected Rigidbody2D enemyRigidbody;
 
+
     /// <summary>
     /// Enemy health
     /// </summary>
-    private float health;
+    protected float health;
 
     /// <summary>
     /// Damage done by enemy
     /// </summary>
-    [SerializeField] float attackDamage = 2;
+    [SerializeField] protected float attackDamage = 2;
 
     /// <summary>
     /// float value used as distance for following.
     /// </summary>
-    [SerializeField] float followDistance = 8;
+    [SerializeField] protected float followDistance = 8;
+   
 
     /// <summary>
     /// attackdistance that the enemy stops with following. used to  not come to close to push the player.
     /// </summary>
-    [SerializeField] float attackDistance = 0.75f;
+    [SerializeField] protected float attackDistance = 0.75f;
 
     /// <summary>
     /// amount used as parameter. can be used for time or damage.
     /// </summary>
-    float amount;
+    protected float amount;
 
 
 
@@ -88,7 +90,7 @@ public class EnemyController : MonoBehaviour
         
     }
 
-    private void Update()
+    void Update()
     {
         TakeDamage(amount);
     }
@@ -97,7 +99,7 @@ public class EnemyController : MonoBehaviour
     /// <summary>
     /// calculates the difference between enemy and player.
     /// </summary>
-    protected void CalculateDistance()
+    protected virtual void CalculateDistance()
     {
         var calculateDistance = Vector3.Distance(target.position, transform.position);
 
