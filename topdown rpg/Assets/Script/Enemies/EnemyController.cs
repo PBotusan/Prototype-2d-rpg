@@ -87,7 +87,6 @@ public class EnemyController : MonoBehaviour
     void FixedUpdate()
     {
         CalculateDistance();
-        
     }
 
     void Update()
