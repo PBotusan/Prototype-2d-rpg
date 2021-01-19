@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 4989374978073999570}
   - component: {fileID: 4989374978073999569}
   - component: {fileID: 4989374978073999568}
-  - component: {fileID: 4989374978073999581}
   - component: {fileID: 4989374978073999572}
+  - component: {fileID: 5646246722797944989}
   m_Layer: 11
   m_Name: Thief
   m_TagString: Enemy
@@ -164,22 +164,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.102223, y: 1.0776556}
   m_EdgeRadius: 0
---- !u!114 &4989374978073999581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 1012659845124041530, guid: 572db1ddcb0894b448b0243b6ad4aa01,
-    type: 3}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4989374978073999580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d37f03296c1f42344ae41beddc6c440d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockback: 2
-  damageAmount: 1
-  time: 0.25
 --- !u!114 &4989374978073999572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,3 +185,18 @@ MonoBehaviour:
   attackDamage: 2
   followDistance: 8
   attackDistance: 0.75
+--- !u!114 &5646246722797944989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4989374978073999580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bd818e3f00ac2429918a851985c3b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockback: 2
+  damageAmount: 2
+  time: 0.25
