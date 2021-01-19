@@ -6,8 +6,8 @@ public enum DoorType
 {
     Key,
     Enemy,
+    Button,
     UnlockedDoor
-
 }
 
 public class Door : InteractableSystem
@@ -45,14 +45,14 @@ public class Door : InteractableSystem
     /// <summary>
     /// Open the door, disable the doorsprite and disable the collider to let the player walk in.
     /// </summary>
-    private void OpenDoor()
+    internal void OpenDoor()
     {
         doorSprite.enabled = false;
         open = true;
         doorCollider.enabled = false;
     }
 
-    private void CloseDoor()
+    internal void CloseDoor()
     {
 
     }
