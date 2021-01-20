@@ -9,6 +9,7 @@ TagManager:
   - Bow
   - Enemy
   - Breakable
+  - PlayerSword
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Path
   - Enemy
   - EnemyProjectile
-  - 
+  - PlayerSword
   - 
   - 
   - 

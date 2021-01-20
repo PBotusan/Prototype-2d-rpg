@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4989374978073999569}
   - component: {fileID: 4989374978073999568}
   - component: {fileID: 4989374978073999572}
-  - component: {fileID: 5646246722797944989}
+  - component: {fileID: 754978296812257400}
   m_Layer: 11
   m_Name: Thief
   m_TagString: Enemy
@@ -185,7 +185,7 @@ MonoBehaviour:
   attackDamage: 2
   followDistance: 8
   attackDistance: 0.75
---- !u!114 &5646246722797944989
+--- !u!114 &754978296812257400
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4989374978073999580}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5bd818e3f00ac2429918a851985c3b7, type: 3}
+  m_Script: {fileID: 11500000, guid: b528c3c5bf4829344bf2df7fdeffa5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   knockback: 2

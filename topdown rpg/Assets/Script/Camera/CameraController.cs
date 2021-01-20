@@ -21,6 +21,10 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    private float timer = 0.6f;
+    private float resetTimer = 0.6f;
+
+
     /// <summary>
     /// Min position of camera.
     /// </summary>
@@ -67,13 +71,6 @@ public class CameraController : MonoBehaviour
     /// </summary>
     public void KickScreen()
     {
-        animator.SetBool("Kick", true);
-        KickCoroutine();
-    }
-
-    private IEnumerator KickCoroutine()
-    {
-        yield return new WaitForSeconds(0.6f);
-        animator.SetBool("Kick", false);
+        animator.SetTrigger("Kick");
     }
 }

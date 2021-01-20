@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4514822803184976160}
   - component: {fileID: 7816100042284906865}
   - component: {fileID: -2988228863067415116}
-  - component: {fileID: 4267632396941211922}
+  - component: {fileID: -9153947858788519907}
   m_Layer: 12
   m_Name: Projectile
   m_TagString: Untagged
@@ -137,7 +137,7 @@ MonoBehaviour:
   directionToMove: {x: 0, y: 0}
   lifeTime: 2
   projectileRigidbody: {fileID: 7816100042284906865}
---- !u!114 &4267632396941211922
+--- !u!114 &-9153947858788519907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,9 +146,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8278513261111449725}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d37f03296c1f42344ae41beddc6c440d, type: 3}
+  m_Script: {fileID: 11500000, guid: b528c3c5bf4829344bf2df7fdeffa5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   knockback: 1
   damageAmount: 2
-  time: 0.3
+  time: 0.25

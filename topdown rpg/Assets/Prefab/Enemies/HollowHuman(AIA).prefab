@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7063333098930407099}
   - component: {fileID: 7063333098930407096}
   - component: {fileID: 7063333098930407097}
-  - component: {fileID: 7063333098930407092}
   - component: {fileID: 7063333098930407090}
+  - component: {fileID: -8770264778882257989}
   m_Layer: 11
   m_Name: HollowHuman(AIA)
   m_TagString: Enemy
@@ -158,21 +158,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.102223, y: 1.0776556}
   m_EdgeRadius: 0
---- !u!114 &7063333098930407092
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7063333098930407093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d37f03296c1f42344ae41beddc6c440d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockback: 2
-  damageAmount: 1
-  time: 0.25
 --- !u!114 &7063333098930407090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,3 +179,18 @@ MonoBehaviour:
   followDistance: 3
   attackDistance: 0.75
   boundary: {fileID: 0}
+--- !u!114 &-8770264778882257989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7063333098930407093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b528c3c5bf4829344bf2df7fdeffa5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockback: 1
+  damageAmount: 1
+  time: 0.25

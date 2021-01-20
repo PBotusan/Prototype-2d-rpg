@@ -20,13 +20,10 @@ public class PlayerKnockback : KnockbackSystem
                 difference = difference.normalized * knockback;
                 target.AddForce(difference, ForceMode2D.Impulse);
 
-                if (collision.gameObject.CompareTag("Player") && collision.isTrigger)
+                if (collision.GetComponent<PlayerController>().currentPlayerState != PlayerState.stagger)
                 {
-                    if (collision.GetComponent<PlayerController>().currentPlayerState != PlayerState.stagger)
-                    {
-                        target.GetComponent<PlayerController>().currentPlayerState = PlayerState.stagger;
-                        collision.GetComponent<PlayerController>().KnockBack(time, damageAmount);
-                    }
+                    target.GetComponent<PlayerController>().currentPlayerState = PlayerState.stagger;
+                    collision.GetComponent<PlayerController>().KnockBack(time, damageAmount);
                 }
             }
         }

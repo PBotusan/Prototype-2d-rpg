@@ -19,11 +19,8 @@ public class EnemyKnockback : KnockbackSystem
                 difference = difference.normalized * knockback;
                 target.AddForce(difference, ForceMode2D.Impulse);
 
-                if (collision.gameObject.CompareTag("Enemy") && collision.isTrigger)
-                {
-                    target.GetComponent<EnemyController>().currentState = EnemyState.stagger;
-                    collision.GetComponent<EnemyController>().KnockBack(target, time, damageAmount);
-                }
+                target.GetComponent<EnemyController>().currentState = EnemyState.stagger;
+                collision.GetComponent<EnemyController>().KnockBack(target, time, damageAmount);
             }
         }
     }
