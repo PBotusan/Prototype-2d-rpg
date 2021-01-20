@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
         time -= Time.deltaTime;
         if (time <= 0)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
@@ -54,6 +54,10 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (!collision.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }

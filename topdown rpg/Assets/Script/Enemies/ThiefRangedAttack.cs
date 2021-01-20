@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,12 +14,7 @@ public class ThiefRangedAttack : EnemyController
 
     private void Update()
     {
-        time -= Time.deltaTime;
-        if (fireDelay <=0)
-        {
-            canFire = true;
-            time = fireDelay;
-        }
+        
     }
 
     /// <summary>
@@ -30,7 +26,9 @@ public class ThiefRangedAttack : EnemyController
 
         if (calculateDistance <= followDistance && calculateDistance > attackDistance)
         {
-            FollowPlayer();
+           AttackPlayer();
+
+            //run away from player
         }
         else
         {
@@ -41,10 +39,12 @@ public class ThiefRangedAttack : EnemyController
     /// <summary>
     /// Used to follow the player, the enemy moves to the player. And changes the state of the enemy to walk.
     /// </summary>
-    protected override void FollowPlayer()
+    protected void AttackPlayer()
     {
         if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
         {
+            RangedAttackTimer();
+            //run away from player 
             if (canFire)
             {
                 // calculate the position of the player to attack him.
@@ -55,6 +55,19 @@ public class ThiefRangedAttack : EnemyController
                 canFire = false;
                 ChangeState(EnemyState.walk);
             }
+        }
+    }
+
+    /// <summary>
+    /// Delay between attacks, timer counts down when starts to attack.
+    /// </summary>
+    private void RangedAttackTimer()
+    {
+        time -= Time.deltaTime;
+        if (time <= 0)
+        {
+            canFire = true;
+            time = fireDelay;
         }
     }
 }
