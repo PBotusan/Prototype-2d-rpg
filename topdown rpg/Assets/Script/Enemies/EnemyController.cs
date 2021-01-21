@@ -71,6 +71,8 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     protected float amount;
 
+    [Header("Death Signals")]
+    [SerializeField] SignalSender roomSignal;
 
 
 
@@ -176,12 +178,13 @@ public class EnemyController : MonoBehaviour
     /// <param name="amount"></param>
     protected virtual void TakeDamage(float amount)
     {
+        health -= amount;
         if (health <= 0)
         {
+            //particles
+            roomSignal.Raise();
             this.gameObject.SetActive(false);
         }
-
-        health -= amount;
     }
 }
 

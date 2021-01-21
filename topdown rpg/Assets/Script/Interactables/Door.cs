@@ -54,6 +54,8 @@ public class Door : InteractableSystem
 
     internal void CloseDoor()
     {
-
+        doorSprite.enabled = true;
+        open = false;
+        doorCollider.enabled = true;
     }
 }

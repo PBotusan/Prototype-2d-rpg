@@ -7,12 +7,12 @@ public class Room : MonoBehaviour
     /// <summary>
     /// Restore enemies.
     /// </summary>
-    [SerializeField] EnemyController[] enemies;
+    [SerializeField] protected EnemyController[] enemies;
 
     /// <summary>
     /// Restore the Pots/Destructables.
     /// </summary>
-    [SerializeField] BreakableObjectsController[] breakables;
+    [SerializeField] protected BreakableObjectsController[] breakables;
 
     /// <summary>
     /// On collision enter, restore the enemies and destructables.
@@ -63,7 +63,7 @@ public class Room : MonoBehaviour
     /// </summary>
     /// <param name="component"> The type you want to activate </param>
     /// <param name="activation"> Activation based on true/false.</param>
-    void ChangeActivation(Component component, bool activation)
+    protected void ChangeActivation(Component component, bool activation)
     {
         component.gameObject.SetActive(activation);
     }
