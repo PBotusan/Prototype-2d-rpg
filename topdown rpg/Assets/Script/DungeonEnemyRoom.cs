@@ -67,6 +67,7 @@ public class DungeonEnemyRoom : DungeonRoom
             }
 
             CloseDoors();
+            virtualCamera.SetActive(true);
         }
     }
 
@@ -88,7 +89,11 @@ public class DungeonEnemyRoom : DungeonRoom
             {
                 ChangeActivation(breakables[i], false);
             }
+            virtualCamera.SetActive(false);
+            OpenDoors();
         }
+
+       
     }
 
 

@@ -14,6 +14,8 @@ public class Room : MonoBehaviour
     /// </summary>
     [SerializeField] protected BreakableObjectsController[] breakables;
 
+    [SerializeField] protected GameObject virtualCamera;
+
     /// <summary>
     /// On collision enter, restore the enemies and destructables.
     /// </summary>
@@ -22,6 +24,8 @@ public class Room : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
+            
+
             //activate the enemies and destructables.
             for (int i = 0; i < enemies.Length; i++)
             {
@@ -32,6 +36,7 @@ public class Room : MonoBehaviour
             {
                 ChangeActivation(breakables[i], true);
             }
+            virtualCamera.SetActive(true);
         }
 
     }
@@ -54,7 +59,7 @@ public class Room : MonoBehaviour
             {
                 ChangeActivation(breakables[i], false);
             }
-
+            virtualCamera.SetActive(false);
         }
     }
 
