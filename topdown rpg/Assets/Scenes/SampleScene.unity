@@ -38722,6 +38722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1873449616}
   - component: {fileID: 1873449615}
+  - component: {fileID: 1873449617}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -38782,6 +38783,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1873449617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873449614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ApplyAfter: 2
+  m_ChannelMask: 1
+  m_Gain: 1
+  m_Use2DDistance: 1
 --- !u!4 &1873822535 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9184318703437321838, guid: 29facdc32d1da6442b13868de8fdf1b3,
@@ -46955,6 +46972,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3878446193230439322, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: m_ImpulseDefinition.m_RawSignal
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a4221be20d2cdb43af12a38f86b173b,
+        type: 2}
+    - target: {fileID: 3878446193230439322, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: m_LayerMask.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 3878446193230439322, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: m_IgnoreTag
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4120402396139844260, guid: 46043ff449988f94c8884c755454655c,
         type: 3}
       propertyPath: m_Name
@@ -48016,6 +48049,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1522080115}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8041330421328584556, guid: d9d9c9f127519514482e8ff86f90a7a6,
         type: 3}
       propertyPath: m_Name
@@ -48076,11 +48117,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1677568813883676008, guid: d9d9c9f127519514482e8ff86f90a7a6,
+    - target: {fileID: 7183255721347581008, guid: d9d9c9f127519514482e8ff86f90a7a6,
         type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1522080115}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9d9c9f127519514482e8ff86f90a7a6, type: 3}
 --- !u!1 &8045170830862435081

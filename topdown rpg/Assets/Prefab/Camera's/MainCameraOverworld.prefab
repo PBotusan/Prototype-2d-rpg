@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 8041330421328584592}
   - component: {fileID: 8041330421328584559}
   - component: {fileID: 8041330421328584557}
-  - component: {fileID: 1677568813883676008}
-  - component: {fileID: 2115324629272391003}
   - component: {fileID: 7183255721347581008}
   m_Layer: 0
   m_Name: MainCameraOverworld
@@ -86,53 +84,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8041330421328584556}
   m_Enabled: 1
---- !u!114 &1677568813883676008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8041330421328584556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7951e3659d43b304dae7d5d84b2a1a98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  smoothSpeed: 0.2
-  offset: {x: 0, y: 0, z: -1}
-  animator: {fileID: 7183255721347581008}
-  camMin: {fileID: 11400000, guid: b64b7b71f3b7cc846b8ef2f6c58c6462, type: 2}
-  camMax: {fileID: 11400000, guid: 0c7a835a31e18a94e9189e0a34304dc7, type: 2}
-  minPosition: {x: 0, y: 0}
-  maxPosition: {x: 0, y: 0}
---- !u!114 &2115324629272391003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8041330421328584556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca86a447436a2b246b69e862ba61ef38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  signalSender: {fileID: 11400000, guid: 5e31956aa674a9549bba61801b86fd96, type: 2}
-  signalEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1677568813883676008}
-        m_MethodName: KickScreen
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!95 &7183255721347581008
 Animator:
   serializedVersion: 3

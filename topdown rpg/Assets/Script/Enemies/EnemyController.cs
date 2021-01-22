@@ -101,6 +101,11 @@ public class EnemyController : MonoBehaviour
         TakeDamage(amount);
     }
 
+    private void OnEnable()
+    {
+        health = maxHealth.InitialValue;
+        currentState = EnemyState.idle;
+    }
 
     /// <summary>
     /// calculates the difference between enemy and player.
