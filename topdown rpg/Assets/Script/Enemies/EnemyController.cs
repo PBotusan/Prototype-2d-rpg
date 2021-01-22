@@ -11,7 +11,8 @@ public enum EnemyState
     idle,
     walk,
     attack,
-    stagger
+    stagger,
+    dead
 }
 
 public class EnemyController : MonoBehaviour
@@ -20,7 +21,6 @@ public class EnemyController : MonoBehaviour
     /// The current state of the enemy
     /// </summary>
     public EnemyState currentState;
-
 
     /// <summary>
     /// Floatvalue scriptable object, used for health.
@@ -70,6 +70,11 @@ public class EnemyController : MonoBehaviour
     /// amount used as parameter. can be used for time or damage.
     /// </summary>
     protected float amount;
+
+    /// <summary>
+    /// Drop Loot when dead.
+    /// </summary>
+    [SerializeField] LootTable loot;
 
     [Header("Death Signals")]
     [SerializeField] SignalSender roomSignal;
@@ -152,8 +157,11 @@ public class EnemyController : MonoBehaviour
     /// <param name="damageAmount"> amount of damage.</param>
     public void KnockBack(Rigidbody2D enemyRigidbody, float time, float damageAmount)
     {
-        StartCoroutine(KnockBackTime(enemyRigidbody, time));
-        TakeDamage(damageAmount);
+        if (currentState != EnemyState.dead)
+        {
+            StartCoroutine(KnockBackTime(enemyRigidbody, time));
+            TakeDamage(damageAmount);
+        }
     }
 
     /// <summary>
@@ -172,6 +180,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+
     /// <summary>
     /// Used to take damage, and disables gameobject when health is below 0.
     /// </summary>
@@ -182,8 +191,23 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             //particles
+            currentState = EnemyState.dead;
+            DropLoot();
             roomSignal.Raise();
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
+        }
+    }
+
+
+    private void DropLoot()
+    {
+        if (loot != null)
+        {
+            PickUpController current = loot.pickUpLoot();
+            if (current != null)
+            {
+                Instantiate(current.gameObject, transform.position, Quaternion.identity);
+            }
         }
     }
 }
