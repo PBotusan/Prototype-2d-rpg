@@ -6,6 +6,8 @@ public class DungeonEnemyRoom : DungeonRoom
 {
     [SerializeField] Door[] doors;
 
+    [SerializeField] Door door;
+
     /// <summary>
     /// Check if the enemies are still alive.
     /// </summary>
@@ -92,9 +94,5 @@ public class DungeonEnemyRoom : DungeonRoom
             virtualCamera.SetActive(false);
             OpenDoors();
         }
-
-       
     }
-
-
 }
