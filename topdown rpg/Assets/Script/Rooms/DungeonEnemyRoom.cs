@@ -1,12 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DungeonEnemyRoom : DungeonRoom
+public class DungeonEnemyRoom : Room
 {
     [SerializeField] Door[] doors;
-
-    [SerializeField] Door door;
+    [SerializeField] GameObject door;
 
     /// <summary>
     /// Check if the enemies are still alive.
@@ -29,10 +29,14 @@ public class DungeonEnemyRoom : DungeonRoom
     /// </summary>
     private void CloseDoors()
     {
-        for (int i = 0; i < doors.Length; i++)
-        {
-            doors[i].CloseDoor();
-        }
+        StartCoroutine(CloseDoorCoroutine());
+        
+    }
+
+    private IEnumerator CloseDoorCoroutine()
+    {
+        yield return new WaitForSeconds(.5f);
+        door.SetActive(true);
     }
 
     /// <summary>
@@ -40,19 +44,12 @@ public class DungeonEnemyRoom : DungeonRoom
     /// </summary>
     private void OpenDoors()
     {
-        for (int i = 0; i < doors.Length; i++)
-        {
-            doors[i].OpenDoor();
-        }
+        door.SetActive(false);
     }
 
     //==================================Overrides from Room Class=========================================\\
     // ChangeActivation inherited by DungeonRoom -> Room.
 
-    /// <summary>
-    /// On collision enter, restore the enemies and destructables.
-    /// </summary>
-    /// <param name="collision"></param>
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
@@ -67,9 +64,8 @@ public class DungeonEnemyRoom : DungeonRoom
             {
                 ChangeActivation(breakables[i], true);
             }
-
-            CloseDoors();
             virtualCamera.SetActive(true);
+            CloseDoors();
         }
     }
 
@@ -91,7 +87,6 @@ public class DungeonEnemyRoom : DungeonRoom
             {
                 ChangeActivation(breakables[i], false);
             }
-            virtualCamera.SetActive(false);
             OpenDoors();
         }
     }

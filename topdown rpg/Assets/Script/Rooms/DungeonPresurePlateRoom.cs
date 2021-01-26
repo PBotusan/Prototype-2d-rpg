@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DungeonPresurePlateRoom : DungeonRoom
+public class DungeonPresurePlateRoom : Room
 {
     [SerializeField] Door[] doors;
     [SerializeField] Door door;
@@ -23,17 +23,6 @@ public class DungeonPresurePlateRoom : DungeonRoom
         OpenDoors();
     }
 
-    /*
-    /// <summary>
-    /// Close door when needed
-    /// </summary>
-    private void CloseDoors()
-    {
-        for (int i = 0; i < doors.Length; i++)
-        {
-            doors[i].CloseDoor();
-        }
-    }*/
 
     /// <summary>
     /// Open the door after completing task.

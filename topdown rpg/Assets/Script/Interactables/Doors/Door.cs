@@ -15,7 +15,6 @@ public enum DoorType
 
 public class Door : InteractableSystem
 {
-
     [Header("Door Variables")]
     [SerializeField] DoorType thisDoorType;
     [SerializeField] bool open = false;
@@ -48,7 +47,7 @@ public class Door : InteractableSystem
 
         if (Input.GetButtonDown("Interact") && thisDoorType == DoorType.PressurePlate)
         {
-            PressurePlate();
+           // PressurePlate();
         }
     }
 

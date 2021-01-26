@@ -29,8 +29,6 @@ public class Room : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            
-
             //activate the enemies and destructables.
             for (int i = 0; i < enemies.Length; i++)
             {
