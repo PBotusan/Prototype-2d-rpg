@@ -21,7 +21,8 @@ public class Switch : MonoBehaviour
     /// </summary>
     [SerializeField] SpriteRenderer spriteSwitch;
 
-    [SerializeField] Door door;
+    [Header("Activate Pressureplate Signals")]
+    [SerializeField] SignalSender roomSignal;
 
     /// <summary>
     ///  Start is called before the first frame update
@@ -29,6 +30,7 @@ public class Switch : MonoBehaviour
     void Start()
     {
         spriteSwitch = GetComponent<SpriteRenderer>();
+       
         active = storedValue.RuntimeValue;
         if (active)
         {
@@ -48,7 +50,7 @@ public class Switch : MonoBehaviour
     {
         active = true;
         storedValue.RuntimeValue = active;
-        door.OpenDoor();
-        spriteSwitch.color = new Color(138f, 255f, 252f, 255f);
+        roomSignal.Raise();
+        gameObject.SetActive(false);
     }
 }

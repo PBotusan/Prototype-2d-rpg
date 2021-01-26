@@ -5,15 +5,9 @@ using UnityEngine.UI;
 
 public class Sign : InteractableSystem
 {
-
     [SerializeField] GameObject dialogBox;
-
     [SerializeField] Text dialogText;
-
     [SerializeField] string dialog;
-
-
-
 
     // Update is called once per frame
     void Update()

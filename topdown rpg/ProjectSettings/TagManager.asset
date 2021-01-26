@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Breakable
   - PlayerSword
+  - Destroyed
   layers:
   - Default
   - TransparentFX

@@ -10,6 +10,11 @@ public class Room : MonoBehaviour
     [SerializeField] protected EnemyController[] enemies;
 
     /// <summary>
+    /// Restore enemies.
+    /// </summary>
+    [SerializeField] protected Switch[] switches;
+
+    /// <summary>
     /// Restore the Pots/Destructables.
     /// </summary>
     [SerializeField] protected BreakableObjectsController[] breakables;
