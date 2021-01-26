@@ -21,6 +21,11 @@ public class PlayerAttackController : MonoBehaviour
     PlayerController playerController;
 
     /// <summary>
+    /// Used to instantiate arrow.
+    /// </summary>
+    [SerializeField] GameObject projectile;
+
+    /// <summary>
     /// Puts the input in variable.
     /// </summary>
     bool swordAttack;
@@ -106,20 +111,31 @@ public class PlayerAttackController : MonoBehaviour
 
     private void AttackWithBow()
     {
-        //todo shoot when standing still
-
         playerController.SlowPlayerDuringAttack();
-        Vector2 shootingDirection = new Vector2(playerController.Horizontal, playerController.Vertical);
-        shootingDirection.Normalize();
-
-        GameObject arrow = Instantiate(arrowPrefab, transform.position, Quaternion.identity);
-        
-        arrow.GetComponent<Rigidbody2D>().velocity = shootingDirection * 12.0f;
-        arrow.transform.Rotate(0.0f, 0.0f, Mathf.Atan2(shootingDirection.y * 10, shootingDirection.x * 10) * Mathf.Rad2Deg);
-        Destroy(arrow, 2.0f);
+        InstantiateArrow();
 
         playerController.RevertPlayerSpeed();
         //todo if i have an animtion for shooting rework to use the stop attacking 
+    }
+
+    /// <summary>
+    /// Instantiate arrrow in game.
+    /// </summary>
+    private void InstantiateArrow()
+    {
+        Vector2 tempPos = new Vector2(animator.GetFloat("OldHorizontalValue"), animator.GetFloat("OldVerticalValue"));
+        FireArrow projectile = Instantiate(arrowPrefab, transform.position, Quaternion.identity).GetComponent<FireArrow>();
+        projectile.Setup(tempPos, ArrowFacingDirection());
+    }
+
+    /// <summary>
+    /// changes the direction of the arrow to the animator old values.
+    /// </summary>
+    /// <returns>  Vector3(0, 0, temp); </returns>
+    Vector3 ArrowFacingDirection()
+    {
+        float temp = Mathf.Atan2(animator.GetFloat("OldHorizontalValue"), animator.GetFloat("OldVerticalValue")) * Mathf.Rad2Deg;
+        return new Vector3(0, 0, temp);
     }
 
     private void StopAttacking(string attackType)

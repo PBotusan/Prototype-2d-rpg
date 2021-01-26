@@ -27,10 +27,11 @@ public class BreakableObjectsController : MonoBehaviour
     /// <summary>
     /// on trigger enter used to break objects.
     /// </summary>
-    public void DestroyPot()
+    internal void DestroyPot()
     {
         animator.SetBool("Destroyed", true);
         boxCollider2D.enabled = false;
+        gameObject.tag = "Destroyed";
         if (!alreadyDestroyed)
         {
             alreadyDestroyed = true;
