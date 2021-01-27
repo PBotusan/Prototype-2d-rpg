@@ -2037,6 +2037,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HollowHuman(AIA) (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7063333098930407093, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7063333098930407090, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
         type: 3}
       propertyPath: boundary
@@ -7338,6 +7343,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HollowHuman(AIA) (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7063333098930407093, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7063333098930407090, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
         type: 3}
       propertyPath: boundary
@@ -7440,6 +7450,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HollowHuman(AIA) (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063333098930407093, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7063333098930407090, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
         type: 3}
@@ -10664,6 +10679,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HollowHuman(AIA) (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063333098930407093, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7063333098930407090, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
         type: 3}
@@ -16964,6 +16984,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HollowHuman(AIA) (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7063333098930407093, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7063333098930407090, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
         type: 3}
       propertyPath: boundary
@@ -19842,6 +19867,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HollowHuman(AIA) (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7063333098930407093, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7063333098930407090, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
         type: 3}
       propertyPath: boundary
@@ -21251,6 +21281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HollowHuman(AIA) (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063333098930407093, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7063333098930407090, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
         type: 3}
@@ -30219,6 +30254,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HollowHuman(AIA) (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7063333098930407093, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7063333098930407090, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
         type: 3}
       propertyPath: boundary
@@ -32806,6 +32846,7 @@ MonoBehaviour:
   - {fileID: 1673043296}
   - {fileID: 2030782844}
   - {fileID: 2110270185}
+  switches: []
   breakables: []
   virtualCamera: {fileID: 1873449614}
 --- !u!1001 &1570842691
@@ -38759,7 +38800,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.209026, y: 1}
+    m_SensorSize: {x: 1.9638826, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -41717,6 +41758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: []
+  switches: []
   breakables: []
   virtualCamera: {fileID: 1873449614}
 --- !u!60 &1983044844
@@ -46703,6 +46745,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HollowHuman(AIA)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063333098930407093, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7063333098930407090, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
         type: 3}

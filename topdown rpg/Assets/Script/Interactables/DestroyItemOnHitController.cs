@@ -10,5 +10,12 @@ public class DestroyItemOnHitController : MonoBehaviour
         {
             collision.GetComponent<BreakableObjectsController>().DestroyPot();
         }
+
+        /* // this will work when i rework the sword collider, problem is that its reacting to my sword it always active, ez bugfix
+        if (collision.CompareTag("Bomb") && collision.isTrigger)
+        {
+            collision.GetComponent<ExplodeBomb>().Explode();
+
+        }*/ 
     }
 }
