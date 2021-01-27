@@ -12,6 +12,7 @@ TagManager:
   - PlayerSword
   - Destroyed
   - Bomb
+  - BombExplosion
   layers:
   - Default
   - TransparentFX
