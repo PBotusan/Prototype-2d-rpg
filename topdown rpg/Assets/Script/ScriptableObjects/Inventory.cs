@@ -22,12 +22,10 @@ public class Inventory : ScriptableObject
 
     [SerializeField] int coins;
 
+
     public Item CurrentItem { get { return currentItem; } set { currentItem = value; } }
-
     public List<Item> Items { get { return items; } }
-
     public int NumberOfKeys { get { return numberOfKeys; } set { numberOfKeys = value; } }
-
     public int Coins { get { return coins; } set { coins = value; } }
 
 

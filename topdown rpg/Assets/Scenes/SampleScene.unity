@@ -28066,6 +28066,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1632741544}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1357775696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 71629195104118429, guid: f0b7e0d77d32efd45a7ee7409e702234,
+    type: 3}
+  m_PrefabInstance: {fileID: 373257337256228936}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1357775698 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9053658260544080303, guid: f0b7e0d77d32efd45a7ee7409e702234,
+    type: 3}
+  m_PrefabInstance: {fileID: 373257337256228936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357775696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdcf53c7f9afefb4ca9bb0df6fb65dd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1357949756 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9184318703437321838, guid: 29facdc32d1da6442b13868de8fdf1b3,
@@ -38761,7 +38779,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9616253, y: 1}
+    m_SensorSize: {x: 2.1491442, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -46475,7 +46493,33 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 250833170448434778, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480239467204288848, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_MaxValue
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480239467204288848, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_Value
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 87426110853978707, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 87426110853978707, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 250833170448434778, guid: f0b7e0d77d32efd45a7ee7409e702234, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f0b7e0d77d32efd45a7ee7409e702234, type: 3}
 --- !u!1 &1245636052349705879
 GameObject:
@@ -46980,8 +47024,24 @@ PrefabInstance:
         type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 2865602176492065535, guid: f03b9ff753a5849439bee7df340bd7d2,
+      objectReference: {fileID: 1357775696}
+    - target: {fileID: 3168180587007008311, guid: 46043ff449988f94c8884c755454655c,
         type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 11400000, guid: de9109ab53aa9d7498222ccc2d6586c4,
+        type: 2}
+    - target: {fileID: 3168180587007008311, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: decreaseStamina
+      value: 
+      objectReference: {fileID: 11400000, guid: 51414ef597377a8428ad524600274505,
+        type: 2}
+    - target: {fileID: 3168180587007008311, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: staminaManager
+      value: 
+      objectReference: {fileID: 1357775698}
     - target: {fileID: 7694600757214396050, guid: 46043ff449988f94c8884c755454655c,
         type: 3}
       propertyPath: m_Layer
@@ -48082,6 +48142,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7183255721347581008, guid: d9d9c9f127519514482e8ff86f90a7a6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041330421328584559, guid: d9d9c9f127519514482e8ff86f90a7a6,
+        type: 3}
+      propertyPath: orthographic size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041330421328584559, guid: d9d9c9f127519514482e8ff86f90a7a6,
         type: 3}
       propertyPath: m_Enabled
       value: 1

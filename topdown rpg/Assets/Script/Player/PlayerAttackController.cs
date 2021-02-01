@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerAttackController : MonoBehaviour
 {
+    [SerializeField] float staminaCost;
+
     /// <summary>
     /// Animator used for player
     /// </summary>
@@ -19,6 +21,9 @@ public class PlayerAttackController : MonoBehaviour
     /// Playercontroller used from the playercontroller script
     /// </summary>
     PlayerController playerController;
+
+    [SerializeField] Inventory playerInventory;
+    [SerializeField] StaminaManager staminaManager;
 
     /// <summary>
     /// Used to instantiate arrow.
@@ -48,6 +53,12 @@ public class PlayerAttackController : MonoBehaviour
     string attackType;
 
 
+    [Header("PlayerSignals")]
+    /// <summary>
+    /// Use signal to decrease Stamina
+    /// </summary>
+    [SerializeField] SignalSender decreaseStamina;
+
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
@@ -55,6 +66,7 @@ public class PlayerAttackController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         playerController = GetComponent<PlayerController>();
+        //playerInventory = GetComponent<Inventory>();
         // find prefab of arrow
     }
 
@@ -97,16 +109,17 @@ public class PlayerAttackController : MonoBehaviour
                 }
                 yield break;
             }
+            if (staminaManager.currentStamina > 0)
+            {
+                staminaManager.DecreaseStamina(30);
+                isAttacking = true;
+                animator.SetBool(attackType, isAttacking);
+                playerController.SlowPlayerDuringAttack();
+                yield return new WaitForSecondsRealtime(attackTimer);
 
-            isAttacking = true;
-            animator.SetBool(attackType, isAttacking);
-            playerController.SlowPlayerDuringAttack();
-            yield return new WaitForSecondsRealtime(attackTimer);
-
-            StopAttacking(attackType);
-
-        }
-        
+                StopAttacking(attackType);
+            }
+        } 
     }
 
     private void AttackWithBow()
@@ -123,9 +136,14 @@ public class PlayerAttackController : MonoBehaviour
     /// </summary>
     private void InstantiateArrow()
     {
-        Vector2 tempPos = new Vector2(animator.GetFloat("OldHorizontalValue"), animator.GetFloat("OldVerticalValue"));
-        FireArrow projectile = Instantiate(arrowPrefab, transform.position, Quaternion.identity).GetComponent<FireArrow>();
-        projectile.Setup(tempPos, ArrowFacingDirection());
+        // if playe rhas enough stamina, shoot arrow.
+        if (staminaManager.currentStamina > 0)
+        {
+            staminaManager.DecreaseStamina(30);
+            Vector2 tempPos = new Vector2(animator.GetFloat("OldHorizontalValue"), animator.GetFloat("OldVerticalValue"));
+            FireArrow projectile = Instantiate(arrowPrefab, transform.position, Quaternion.identity).GetComponent<FireArrow>();
+            projectile.Setup(tempPos, ArrowFacingDirection());
+        }
     }
 
     /// <summary>

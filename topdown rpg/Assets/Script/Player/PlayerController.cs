@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] SpriteRenderer recievedItemSprite;
 
 
-
     /// <summary>
     /// movedirection for player 'move X'.
     /// </summary>
@@ -80,11 +79,13 @@ public class PlayerController : MonoBehaviour
     private float vertical;
     public float Vertical { get { return vertical; } set { vertical = value; } }
 
-
+    [Header("PlayerSignals")]
     /// <summary>
     /// Use to raise signal for screen shake/kick after hit.
     /// </summary>
     [SerializeField] SignalSender playerHit;
+
+    [SerializeField] SignalSender decreaseStamina;
 
 
     /// <summary>
