@@ -44,7 +44,8 @@ public class PlayerAttackController : MonoBehaviour
     /// <summary>
     /// Is attacking used to set the bool of the animator
     /// </summary>
-    bool isAttacking = false;
+    public bool isAttacking = false;
+
 
 
     /// <summary>
@@ -112,8 +113,8 @@ public class PlayerAttackController : MonoBehaviour
             }
             if (staminaManager.currentStamina > 0)
             {
-                staminaManager.DecreaseStamina(30);
                 isAttacking = true;
+                staminaManager.DecreaseStamina(30);
                 animator.SetBool(attackType, isAttacking);
                 playerController.SlowPlayerDuringAttack();
                 yield return new WaitForSecondsRealtime(attackTimer);
@@ -165,6 +166,7 @@ public class PlayerAttackController : MonoBehaviour
     private void StopAttacking(string attackType)
     {
         isAttacking = false;
+
         animator.SetBool(attackType, isAttacking);
 
         if (playerController.currentPlayerState != PlayerState.interact)

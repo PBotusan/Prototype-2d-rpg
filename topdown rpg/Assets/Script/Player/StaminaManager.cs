@@ -6,6 +6,7 @@ public class StaminaManager : MonoBehaviour
 {
     [SerializeField] Slider staminaSlider;
     [SerializeField] Inventory playerInventory;
+    [SerializeField] PlayerController playerController;
 
     /// <summary>
     /// Max value of stamina.
@@ -15,6 +16,8 @@ public class StaminaManager : MonoBehaviour
     /// Current stamina amount of player.
     /// </summary>
     public float currentStamina;
+
+    private bool stillAttacking;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +41,7 @@ public class StaminaManager : MonoBehaviour
 
     private IEnumerator RegenerateStaminaCoroutine()
     {
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSeconds(2);
         staminaSlider.value += 0.5f;
         currentStamina += 0.5f;
     }
