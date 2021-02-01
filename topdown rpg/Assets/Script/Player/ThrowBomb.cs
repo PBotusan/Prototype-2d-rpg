@@ -7,6 +7,14 @@ public class ThrowBomb : MonoBehaviour
     /// Instantiate the bomb.
     /// </summary>
     [SerializeField] GameObject bomb;
+    [SerializeField] Inventory playerInventory;
+
+    [Header("Signals")]
+    /// <summary>
+    /// Use signal to update bomb UI;
+    /// </summary>
+    [SerializeField] SignalSender UpdateBombUI;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +33,15 @@ public class ThrowBomb : MonoBehaviour
     {
         if (Input.GetButtonDown("ThrowBomb"))
         {
-            InstantiateBomb();
+            if(playerInventory.Bombs > 0)
+                InstantiateBomb();
         }
     }
 
     private void InstantiateBomb()
     {
         Instantiate(bomb.gameObject, transform.position, Quaternion.identity);
+        playerInventory.Bombs -= 1;
+        UpdateBombUI.Raise();
     }
 }

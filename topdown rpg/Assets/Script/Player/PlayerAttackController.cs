@@ -58,6 +58,7 @@ public class PlayerAttackController : MonoBehaviour
     /// Use signal to decrease Stamina
     /// </summary>
     [SerializeField] SignalSender decreaseStamina;
+    [SerializeField] SignalSender UpdateArrowUI;
 
     /// <summary>
     /// Start is called before the first frame update
@@ -136,10 +137,15 @@ public class PlayerAttackController : MonoBehaviour
     /// </summary>
     private void InstantiateArrow()
     {
-        // if playe rhas enough stamina, shoot arrow.
-        if (staminaManager.currentStamina > 0)
+        // if player has enough stamina, shoot arrow.
+        if (staminaManager.currentStamina > 0 && playerInventory.Arrows > 0)
         {
-            staminaManager.DecreaseStamina(30);
+            var amountOfStamina = 30;
+            staminaManager.DecreaseStamina(amountOfStamina);
+            playerInventory.Arrows -= 1;
+            UpdateArrowUI.Raise();
+
+
             Vector2 tempPos = new Vector2(animator.GetFloat("OldHorizontalValue"), animator.GetFloat("OldVerticalValue"));
             FireArrow projectile = Instantiate(arrowPrefab, transform.position, Quaternion.identity).GetComponent<FireArrow>();
             projectile.Setup(tempPos, ArrowFacingDirection());
