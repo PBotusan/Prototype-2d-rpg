@@ -111,7 +111,7 @@ public class PlayerAttackController : MonoBehaviour
                 }
                 yield break;
             }
-            if (staminaManager.currentStamina > 0)
+            if (staminaManager.currentStamina > 5)
             {
                 isAttacking = true;
                 staminaManager.DecreaseStamina(30);
@@ -139,7 +139,7 @@ public class PlayerAttackController : MonoBehaviour
     private void InstantiateArrow()
     {
         // if player has enough stamina, shoot arrow.
-        if (staminaManager.currentStamina > 0 && playerInventory.Arrows > 0)
+        if (staminaManager.currentStamina > 5 && playerInventory.Arrows > 0)
         {
             var amountOfStamina = 30;
             staminaManager.DecreaseStamina(amountOfStamina);

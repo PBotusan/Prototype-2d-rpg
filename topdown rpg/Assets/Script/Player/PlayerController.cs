@@ -10,6 +10,7 @@ public enum PlayerState
 {
     idle,
     walk,
+    run,
     attack,
     interact,
     stagger
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     [SerializeField] Rigidbody2D playerRigidbody;
 
+    [SerializeField] StaminaManager staminaManager;
 
     /// <summary>
     /// The movement-speed of the player.
@@ -151,6 +153,7 @@ public class PlayerController : MonoBehaviour
             currentPlayerState = PlayerState.walk;
             animator.SetFloat("OldHorizontalValue", horizontal);
             animator.SetFloat("OldVerticalValue", vertical);
+            checkIfPlayerCanRun();
         }
         else if (horizontal == 0 || vertical == 0)
         {
@@ -160,6 +163,29 @@ public class PlayerController : MonoBehaviour
         }
 
 
+    }
+
+    private void checkIfPlayerCanRun()
+    {
+        if (Input.GetButton("Run"))
+        {
+            currentPlayerState = PlayerState.run;
+ 
+            if (staminaManager.currentStamina > 5 && currentPlayerState == PlayerState.run)
+            {
+                playerSpeed = 8f;
+                staminaManager.DecreaseStamina(1f);
+            }
+            if (staminaManager.currentStamina < 5)
+            {
+                currentPlayerState = PlayerState.walk;
+                playerSpeed = oldPlayerSpeed;
+            }
+        }
+        else if (Input.GetButtonUp("Run"))
+        {
+            playerSpeed = oldPlayerSpeed;
+        }
     }
 
     public void RaiseItem()
