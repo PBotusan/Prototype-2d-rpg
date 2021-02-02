@@ -11,27 +11,29 @@ public class UpdateTextInUIManager : MonoBehaviour
     /// <summary>
     /// Update GUI to show coin amount.
     /// </summary>
-    [SerializeField] TextMeshProUGUI uiText;
+    [SerializeField] TextMeshProUGUI uiTextCoin;
+    [SerializeField] TextMeshProUGUI uiTextArrows;
+    [SerializeField] TextMeshProUGUI uiTextBombs;
 
-    private void Awake()
+    private void Start()
     {
-        uiText.text = "" + playerInventory.Coins;
-        uiText.text = "" + playerInventory.Arrows;
-        uiText.text = "" + playerInventory.Bombs;
+        uiTextCoin.text = "" + playerInventory.Coins;
+        uiTextArrows.text = "" + playerInventory.Arrows;
+        uiTextBombs.text = "" + playerInventory.Bombs;
     }
 
     public void UpdateCoinText()
     {
-        uiText.text = "" + playerInventory.Coins;
+        uiTextCoin.text = "" + playerInventory.Coins;
     }
 
     public void UpdateArrowText()
     {
-        uiText.text = "" + playerInventory.Arrows;
+        uiTextArrows.text = "" + playerInventory.Arrows;
     }
 
     public void UpdateBombText()
     {
-        uiText.text = "" + playerInventory.Bombs;
+        uiTextBombs.text = "" + playerInventory.Bombs;
     }
 }

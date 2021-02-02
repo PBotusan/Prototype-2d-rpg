@@ -64,6 +64,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] SpriteRenderer recievedItemSprite;
 
+    [SerializeField] Color flashColor;
+    [SerializeField] Color regularColor;
+    [SerializeField] float flashDuration;
+    [SerializeField] int numberOfFlashes;
+    [SerializeField] Collider2D triggerCollider;
+    [SerializeField] SpriteRenderer playerSprite;
+
 
     /// <summary>
     /// movedirection for player 'move X'.
@@ -219,6 +226,7 @@ public class PlayerController : MonoBehaviour
 
         if (playerRigidbody != null)
         {
+            StartCoroutine(FlashCoroutine());
             yield return new WaitForSeconds(time);
             playerRigidbody.velocity = Vector2.zero;
             currentPlayerState = PlayerState.idle;
@@ -226,4 +234,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private IEnumerator FlashCoroutine()
+    {
+        int temp = 0;
+        triggerCollider.enabled = false;
+
+        while (temp < numberOfFlashes)
+        {
+            playerSprite.color = flashColor;
+            yield return new WaitForSeconds(flashDuration);
+            playerSprite.color = regularColor;
+            yield return new WaitForSeconds(flashDuration);
+            temp++;
+        }
+        triggerCollider.enabled = true;
+    }
 }
