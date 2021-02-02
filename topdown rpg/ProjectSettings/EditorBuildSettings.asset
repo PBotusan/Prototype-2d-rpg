@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SecretCave.unity
     guid: 9776103ba39116c42b86b08db36ecefc
+  - enabled: 1
+    path: Assets/Scenes/TitleScreens/TitleScreen.unity
+    guid: 745d0766852a3284db47e0cee568daaf
   m_configObjects: {}
