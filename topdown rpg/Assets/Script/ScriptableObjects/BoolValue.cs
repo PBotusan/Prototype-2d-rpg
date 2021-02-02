@@ -4,7 +4,8 @@ using UnityEngine;
 
 
 [CreateAssetMenu]
-public class BoolValue : ScriptableObject, ISerializationCallbackReceiver
+[System.Serializable]
+public class BoolValue : ScriptableObject
 {
     /// <summary>
     /// Initial value used to change the value.
@@ -15,14 +16,4 @@ public class BoolValue : ScriptableObject, ISerializationCallbackReceiver
     [SerializeField] bool runtimeValue;
     public bool RuntimeValue { get { return runtimeValue; } set { runtimeValue = value; } }
 
-
-    public void OnAfterDeserialize()
-    {
-        runtimeValue = initialValue;
-    }
-
-    public void OnBeforeSerialize()
-    {
-
-    }
 }

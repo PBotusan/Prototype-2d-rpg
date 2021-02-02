@@ -94,9 +94,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     [SerializeField] SignalSender playerHit;
 
-    [SerializeField] SignalSender decreaseStamina;
-
-
     /// <summary>
     /// Start is called before the first frame update.
     /// </summary>
