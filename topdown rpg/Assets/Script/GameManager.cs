@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -12,6 +13,9 @@ public class GameManager : MonoBehaviour
     public static GameManager gameManager;
 
     public List<ScriptableObject> objects = new List<ScriptableObject>();
+    public PlayerHealthManager playerHealthManager;
+    public Inventory inventory;
+
 
     private void Awake()
     {
@@ -67,5 +71,35 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Game Loaded");
             }
         }
+    }
+
+    public void DeleteSave()
+    {
+        for (int i = 0; i < objects.Count; i++)
+        {
+            if (File.Exists(Application.persistentDataPath + string.Format("/{0}.dat", i)))
+            {
+                File.Delete(Application.persistentDataPath + string.Format("/{0}.dat", i));
+                Debug.Log("delete save");
+            }
+           
+        }
+    }
+
+    public void ResetHeartValues()
+    {
+        playerHealthManager.heartContainers.RuntimeValue = 3;
+        playerHealthManager.playerCurrentHealth.RuntimeValue = 6;
+        Debug.Log("Reset Hearts");
+    }
+
+    public void ResetInventory()
+    {
+        inventory.Coins = 0;
+        inventory.Arrows = 0;
+        inventory.Bombs = 0;
+        inventory.NumberOfKeys = 0;
+
+        Debug.Log("Reset Inventory");
     }
 }

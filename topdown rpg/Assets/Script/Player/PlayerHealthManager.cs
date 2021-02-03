@@ -14,8 +14,8 @@ public class PlayerHealthManager : MonoBehaviour
     [SerializeField] Sprite emptyHeart;
 
 
-    [SerializeField] FloatValue heartContainers;
-    [SerializeField] FloatValue playerCurrentHealth;
+    public FloatValue heartContainers;
+    public FloatValue playerCurrentHealth;
 
     // Start is called before the first frame update
     void Start()
