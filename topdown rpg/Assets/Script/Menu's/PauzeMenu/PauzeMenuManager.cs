@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 public class PauzeMenuManager : MonoBehaviour
 {
     [SerializeField] GameObject pausePanel;
+    [SerializeField] GameObject inventoryPanel;
+
+    [SerializeField] bool usingPausePanel;
     [SerializeField] string mainMenu;
 
     private bool isPaused;
@@ -13,6 +16,9 @@ public class PauzeMenuManager : MonoBehaviour
     void Start()
     {
         isPaused = false;
+        pausePanel.SetActive(false);
+        inventoryPanel.SetActive(false);
+        usingPausePanel = false;
     }
 
     // Update is called once per frame
@@ -37,6 +43,7 @@ public class PauzeMenuManager : MonoBehaviour
         else
         {
             pausePanel.SetActive(false);
+            inventoryPanel.SetActive(false);
             Time.timeScale = 1f;
         }
     }
@@ -44,7 +51,22 @@ public class PauzeMenuManager : MonoBehaviour
 
     public void Quit()
     {
-         Time.timeScale = 1;
+        Time.timeScale = 1;
         SceneManager.LoadScene(mainMenu);
+    }
+
+    public void SwitchPanels()
+    {
+        usingPausePanel = !usingPausePanel;
+        if (usingPausePanel)
+        {
+            pausePanel.SetActive(true);
+            inventoryPanel.SetActive(false);
+        }
+        else
+        {
+            inventoryPanel.SetActive(true);
+            pausePanel.SetActive(false);
+        }
     }
 }

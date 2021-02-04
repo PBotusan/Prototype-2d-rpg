@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Red Potion
   itemDescription: Heals 10 hearts
   itemImage: {fileID: 21300000, guid: e9499c454380615469b978279ae5e5b9, type: 3}
-  numberHold: 1
+  numberHold: 0
   usable: 1
   unique: 0
   unityEvent:
@@ -29,6 +29,17 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000}
+        m_MethodName: DecreaseAmount
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

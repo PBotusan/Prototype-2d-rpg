@@ -23,7 +23,16 @@ public class InventoryItem : ScriptableObject
 
     public void Use()
     {
-        Debug.Log("Using item");
         unityEvent.Invoke();
+    }
+
+    public void DecreaseAmount(int amount)
+    {
+        numberHold -= amount;
+
+        if (numberHold < 0)
+        {
+            numberHold = 0;
+        }
     }
 }

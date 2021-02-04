@@ -36,12 +36,15 @@ public class InventoryManager : MonoBehaviour
         {
             for (int i = 0; i < playerInventory.CurrentInventory.Count; i++)
             {
-                GameObject temp = Instantiate(inventorySlot, inventoryPanel.transform.position, Quaternion.identity);
-                temp.transform.SetParent(inventoryPanel.transform);
-                InventorySlot newSlot = temp.GetComponent<InventorySlot>();
-                if (newSlot)
+                if (playerInventory.CurrentInventory[i].NumberHold > 0)// make with few items that can remain. playerInventory.CurrentInventory[i].itemname == "itemname" 
                 {
-                    newSlot.Setup(playerInventory.CurrentInventory[i], this);
+                    GameObject temp = Instantiate(inventorySlot, inventoryPanel.transform.position, Quaternion.identity);
+                    temp.transform.SetParent(inventoryPanel.transform);
+                    InventorySlot newSlot = temp.GetComponent<InventorySlot>();
+                    if (newSlot)
+                    {
+                        newSlot.Setup(playerInventory.CurrentInventory[i], this);
+                    }
                 }
             }
         }
@@ -59,9 +62,23 @@ public class InventoryManager : MonoBehaviour
         if (currentItem)
         {
             currentItem.Use();
+            //Clear inventory slots
+            ClearInventorySlots();
+            //update invetory slots
+            MakeInventorySlots();
+
+            if (currentItem.NumberHold == 0)
+            {
+                SetTextAndButton("", false);
+            }
         }
     }
-    
 
-    
+    private void ClearInventorySlots()
+    {
+        for (int i = 0; i < inventoryPanel.transform.childCount; i++)
+        {
+            Destroy(inventoryPanel.transform.GetChild(i).gameObject);
+        }
+    }
 }
