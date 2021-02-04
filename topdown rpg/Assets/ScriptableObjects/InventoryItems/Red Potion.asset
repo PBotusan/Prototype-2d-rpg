@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cbb8c78f204a14281aa48cf128a68b, type: 3}
+  m_Name: Red Potion
+  m_EditorClassIdentifier: 
+  itemName: Red Potion
+  itemDescription: Heals 10 hearts
+  itemImage: {fileID: 21300000, guid: e9499c454380615469b978279ae5e5b9, type: 3}
+  numberHold: 1
+  usable: 1
+  unique: 0
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1669203530745276604, guid: 2fa6ce95d737ac448889cdde8bbc0e2c,
+          type: 3}
+        m_MethodName: RedPotion
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 10
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
