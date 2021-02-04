@@ -2,6 +2,7 @@
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Items")]
+[System.Serializable]
 public class InventoryItem : ScriptableObject
 {
     [SerializeField] string itemName;

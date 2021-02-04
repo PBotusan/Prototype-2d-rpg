@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/PlayerInventory")]
+[System.Serializable]
 public class PlayerInventory : ScriptableObject
 {
     [SerializeField] List<InventoryItem> currentInventory = new List<InventoryItem>();
