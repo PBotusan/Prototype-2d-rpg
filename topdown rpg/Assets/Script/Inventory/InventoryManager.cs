@@ -17,8 +17,9 @@ public class InventoryManager : MonoBehaviour
     public InventoryItem CurrentItem { get {return currentItem; } set { currentItem = value; } }
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
+        ClearInventorySlots();
         MakeInventorySlots();
         SetTextAndButton("", false);
     }
