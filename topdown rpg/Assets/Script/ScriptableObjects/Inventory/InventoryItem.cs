@@ -36,4 +36,10 @@ public class InventoryItem : ScriptableObject
             numberHold = 0;
         }
     }
+
+    
+
+
+
+
 }

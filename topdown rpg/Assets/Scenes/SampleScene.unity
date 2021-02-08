@@ -39296,7 +39296,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.038261, y: 1}
+    m_SensorSize: {x: 1.9403974, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -45360,6 +45360,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInventory: {fileID: 11400000, guid: de0c05a0e869cca45aeb5d42fecb6df3, type: 2}
+  saveType: 0
+  ItemDB: {fileID: 11400000, guid: 36b98801ac64b094b93ba37194f36a28, type: 2}
 --- !u!1 &2102982296
 GameObject:
   m_ObjectHideFlags: 0

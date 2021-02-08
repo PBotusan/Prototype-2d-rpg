@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     public PlayerState currentPlayerState;
 
+
     /// <summary>
     /// 
     /// </summary>
@@ -63,8 +64,8 @@ public class PlayerController : MonoBehaviour
     float speedDuringAttacks = 0;
 
     [SerializeField] Inventory playerInventory;
-
     [SerializeField] SpriteRenderer recievedItemSprite;
+
 
     [SerializeField] Color flashColor;
     [SerializeField] Color regularColor;
@@ -79,8 +80,6 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private float horizontal;
     public float Horizontal { get { return horizontal; } set { horizontal = value; } }
-
-
 
     /// <summary>
     ///  movedirection for player 'move Y'. 
@@ -185,6 +184,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    internal void SlowPlayerDuringAttack()
+    {
+        playerSpeed = speedDuringAttacks;
+    }
+
+    internal void RevertPlayerSpeed()
+    {
+        playerSpeed = oldPlayerSpeed;
+    }
+
+
     public void RaiseItem()
     {
         if (playerInventory.CurrentItem != null)
@@ -205,18 +215,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
-    public void SlowPlayerDuringAttack()
-    {
-        playerSpeed = speedDuringAttacks;
-    }
-
-    public void RevertPlayerSpeed()
-    {
-        playerSpeed = oldPlayerSpeed;
-    }
-
-
     /// <summary>
     /// starts the coroutine.
     /// </summary>
@@ -233,7 +231,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 
