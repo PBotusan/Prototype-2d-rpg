@@ -1,71 +1,21 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 
-public class PlayerHealthManager : MonoBehaviour
+public class PlayerHealthManager : GenericHealthSystem
 {
-    /// <summary>
-    /// image array of hearts
-    /// </summary>
-    [SerializeField] Image[] hearts;
+    [SerializeField] SignalSender healthSignal;
 
-    /// images used for hearts
-    [SerializeField] Sprite fullHeart;
-    [SerializeField] Sprite halfFullHeart;
-    [SerializeField] Sprite emptyHeart;
-
-
-    public FloatValue heartContainers;
-    public FloatValue playerCurrentHealth;
-
-    // Start is called before the first frame update
-    void Start()
+    public override void Damage(float amount)
     {
-        InitHearts();
+        base.Damage(amount);
+        MaxHealth.RuntimeValue = CurrentHealth;
+        healthSignal.Raise();
     }
 
-    /// <summary>
-    /// init all the hearts and set the amount to active
-    /// </summary>
-    public void InitHearts()
+    public override void Heal(float amount)
     {
-        for (int i = 0; i < heartContainers.RuntimeValue; i++)
-        {
-            if (i < hearts.Length)
-            {
-                hearts[i].gameObject.SetActive(true);
-                hearts[i].sprite = fullHeart;
-            }
-        }
-
+        base.Heal(amount);
     }
 
-    /// <summary>
-    /// update the current amount of health
-    /// </summary>
-    public void UpdateHearts()
-    {
-        InitHearts();
-        float tempHealth = playerCurrentHealth.RuntimeValue / 2;
-        for (int i = 0; i < heartContainers.RuntimeValue; i++)
-        {
-            if (i <= tempHealth - 1)
-            {
-                //full
-                hearts[i].sprite = fullHeart;
-            }
-            else if (i >= tempHealth)
-            {
-                //emptyHeart
-                hearts[i].sprite = emptyHeart;
-            }
-            else
-            {
-                //half-full
-                hearts[i].sprite = halfFullHeart;
-            }
-        }
-
-
-    }
 
 }

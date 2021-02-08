@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public static GameManager gameManager;
 
     public List<ScriptableObject> objects = new List<ScriptableObject>();
-    public PlayerHealthManager playerHealthManager;
+    public PlayerHealthHUD playerHealthHUD;
     public Inventory inventory;
 
 
@@ -88,8 +88,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetHeartValues()
     {
-        playerHealthManager.heartContainers.RuntimeValue = 3;
-        playerHealthManager.playerCurrentHealth.RuntimeValue = 6;
+        playerHealthHUD.heartContainers.RuntimeValue = 3;
+        playerHealthHUD.playerCurrentHealth.RuntimeValue = 6;
         Debug.Log("Reset Hearts");
     }
 

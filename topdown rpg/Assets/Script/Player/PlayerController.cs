@@ -22,17 +22,16 @@ public class PlayerController : MonoBehaviour
     /// The current state of the player
     /// </summary>
     public PlayerState currentPlayerState;
-
-
+    
     /// <summary>
     /// 
     /// </summary>
-    public SignalSender playerHealthSignal;
+   // public SignalSender playerHealthSignal;
 
     /// <summary>
     /// current health amount
     /// </summary>
-    public FloatValue currentHealth;
+   // public FloatValue currentHealth;
 
     /// <summary>
     /// startingpos of player when starting the game
@@ -223,16 +222,18 @@ public class PlayerController : MonoBehaviour
     /// <param name="damageAmount"> amount of damage.</param>
     public void KnockBack(float time, float damage)
     {
+        StartCoroutine(KnockBackTime(time));
+        /*
         currentHealth.RuntimeValue -= damage;
         playerHealthSignal.Raise();
         if (currentHealth.RuntimeValue > 0)
         {
-            StartCoroutine(KnockBackTime(time));
+           
         }
         else
         {
             gameObject.SetActive(false);
-        }
+        }*/
     }
 
     /// <summary>
