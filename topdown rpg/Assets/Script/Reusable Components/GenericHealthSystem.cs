@@ -18,11 +18,6 @@ public class GenericHealthSystem : MonoBehaviour
         currentHealth = heartContainer.RuntimeValue * 2;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public virtual void Heal(float amount)
     {
