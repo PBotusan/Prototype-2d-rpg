@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,20 +11,19 @@ public class PlayerKnockback : KnockbackSystem
     /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") && collision.isTrigger)
         {
-            Rigidbody2D target = collision.GetComponent<Rigidbody2D>();
+            Rigidbody2D target = collision.GetComponentInParent<Rigidbody2D>();
             if (target != null)
             {
-
-                Vector2 difference = target.transform.position - transform.position;
+                Vector3 difference = transform.position - collision.transform.position;
                 difference = difference.normalized * knockback;
-                target.AddForce(difference, ForceMode2D.Impulse);
+                target.DOMove(target.transform.position + difference, time);
 
-                if (collision.GetComponent<PlayerController>().currentPlayerState != PlayerState.stagger)
+                if (collision.GetComponentInParent<PlayerController>().currentPlayerState != PlayerState.stagger)
                 {
-                    target.GetComponent<PlayerController>().currentPlayerState = PlayerState.stagger;
-                    collision.GetComponent<PlayerController>().KnockBack(time, damageAmount);
+                    target.GetComponentInParent<PlayerController>().currentPlayerState = PlayerState.stagger;
+                    collision.GetComponentInParent<PlayerController>().KnockBack(time);
                 }
             }
         }

@@ -160,12 +160,12 @@ public class EnemyController : MonoBehaviour
     /// <param name="enemyRigidbody"> enemyrigidbody</param>
     /// <param name="time"> duration in seconds </param>
     /// <param name="damageAmount"> amount of damage.</param>
-    public void KnockBack(Rigidbody2D enemyRigidbody, float time, float damageAmount)
+    public void KnockBack(float time)
     {
         if (currentState != EnemyState.dead)
         {
-            StartCoroutine(KnockBackTime(enemyRigidbody, time));
-            TakeDamage(damageAmount);
+            StartCoroutine(KnockBackTime(time));
+            //TakeDamage(damageAmount);
         }
     }
 
@@ -175,7 +175,7 @@ public class EnemyController : MonoBehaviour
     /// <param name="enemyRigidbody"> enemyrigidbody</param>
     /// <param name="time"> duration in seconds </param>
     /// <returns></returns>
-    private IEnumerator KnockBackTime(Rigidbody2D enemyRigidbody, float time)
+    private IEnumerator KnockBackTime(float time)
     {
         if (enemyRigidbody != null)
         {

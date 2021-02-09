@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class EnemyKnockback : KnockbackSystem
 {
@@ -10,17 +11,17 @@ public class EnemyKnockback : KnockbackSystem
     /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy") && collision.isTrigger)
         {
-            Rigidbody2D target = collision.GetComponent<Rigidbody2D>();
+            Rigidbody2D target = collision.GetComponentInParent<Rigidbody2D>();
             if (target != null)
             {
-                Vector2 difference = target.transform.position - transform.position;
+                Vector3 difference = target.transform.position - transform.position;
                 difference = difference.normalized * knockback;
-                target.AddForce(difference, ForceMode2D.Impulse);
+                target.DOMove(target.transform.position + difference, time);
 
-                target.GetComponent<EnemyController>().currentState = EnemyState.stagger;
-                collision.GetComponent<EnemyController>().KnockBack(target, time, damageAmount);
+                target.GetComponentInParent<EnemyController>().currentState = EnemyState.stagger;
+                collision.GetComponentInParent<EnemyController>().KnockBack(time);
             }
         }
     }

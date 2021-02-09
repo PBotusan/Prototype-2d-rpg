@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -220,7 +218,7 @@ public class PlayerController : MonoBehaviour
     /// <param name="enemyRigidbody"> enemyrigidbody</param>
     /// <param name="time"> duration in seconds </param>
     /// <param name="damageAmount"> amount of damage.</param>
-    public void KnockBack(float time, float damage)
+    public void KnockBack(float time)
     {
         StartCoroutine(KnockBackTime(time));
         /*
@@ -250,7 +248,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(FlashCoroutine());
             yield return new WaitForSeconds(time);
-            playerRigidbody.velocity = Vector2.zero;
+            //playerRigidbody.velocity = Vector2.zero;
             currentPlayerState = PlayerState.idle;
             Debug.Log("enemy hit player");
         }

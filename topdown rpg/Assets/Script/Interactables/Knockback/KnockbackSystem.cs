@@ -12,7 +12,7 @@ public class KnockbackSystem : MonoBehaviour
     /// <summary>
     /// The amount of damage done by enemy/player
     /// </summary>
-    [SerializeField] protected float damageAmount;
+   // [SerializeField] protected float damageAmount;
 
     /// <summary>
     /// amount in seconds

@@ -6,6 +6,7 @@ public class GenericHealthSystem : MonoBehaviour
 {
 
     [SerializeField] FloatValue maxhealth;
+    [SerializeField] FloatValue heartContainer;
     [SerializeField] float currentHealth;
 
     public FloatValue MaxHealth { get { return maxhealth; } set { maxhealth = value; } }
@@ -14,7 +15,7 @@ public class GenericHealthSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxhealth.RuntimeValue;
+        currentHealth = heartContainer.RuntimeValue * 2;
     }
 
     // Update is called once per frame
