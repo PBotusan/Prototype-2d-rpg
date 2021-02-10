@@ -23,12 +23,6 @@ public class EnemyController : MonoBehaviour
     public EnemyState currentState;
 
     /// <summary>
-    /// Floatvalue scriptable object, used for health.
-    /// </summary>
-    [SerializeField] protected FloatValue maxHealth;
-
-
-    /// <summary>
     /// Movementspeed used for walking enemy.
     /// </summary>
     [SerializeField] protected float movementSpeed = 3.5f;
@@ -43,12 +37,6 @@ public class EnemyController : MonoBehaviour
     /// Enemy rigidbody used to move the enemy
     /// </summary>
     [SerializeField] protected Rigidbody2D enemyRigidbody;
-
-
-    /// <summary>
-    /// Enemy health
-    /// </summary>
-    //protected float health;
 
     /// <summary>
     /// Damage done by enemy
@@ -71,21 +59,10 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     protected float amount;
 
-    ///// <summary>
-    /// Drop Loot when dead.
-    /// </summary>
-    //[SerializeField] LootTable loot;
-
-    //[Header("Death Signals")]
-    //[SerializeField] SignalSender roomSignal;
-
-
 
     // Start is called before the first frame update
     void Start()
     {
-        //health = maxHealth.InitialValue;
-
         target = FindObjectOfType<PlayerController>().transform;
         enemyRigidbody = GetComponent<Rigidbody2D>();
     }
@@ -96,16 +73,6 @@ public class EnemyController : MonoBehaviour
         CalculateDistance();
     }
 
-    void Update()
-    {
-        //TakeDamage(amount);
-    }
-
-    /*private void OnEnable()
-    {
-        health = maxHealth.InitialValue;
-        currentState = EnemyState.idle;
-    }*/
 
     /// <summary>
     /// calculates the difference between enemy and player.
@@ -165,7 +132,6 @@ public class EnemyController : MonoBehaviour
         if (currentState != EnemyState.dead)
         {
             StartCoroutine(KnockBackTime(time));
-            //TakeDamage(damageAmount);
         }
     }
 
@@ -184,36 +150,5 @@ public class EnemyController : MonoBehaviour
             currentState = EnemyState.idle;
         }
     }
-
-
-    /*/// <summary>
-    /// Used to take damage, and disables gameobject when health is below 0.
-    /// </summary>
-    /// <param name="amount"></param>
-    protected virtual void TakeDamage(float amount)
-    {
-        health -= amount;
-        if (health <= 0)
-        {
-            //particles
-            currentState = EnemyState.dead;
-            DropLoot();
-            roomSignal.Raise();
-            gameObject.SetActive(false);
-        }
-    }*/
-
-/*
-    private void DropLoot()
-    {
-        if (loot != null)
-        {
-            PickUpController current = loot.pickUpLoot();
-            if (current != null)
-            {
-                Instantiate(current.gameObject, transform.position, Quaternion.identity);
-            }
-        }
-    }*/
 }
 

@@ -7,17 +7,15 @@ public class EnemyHealthManager : GenericHealthSystem
 {
     [SerializeField] EnemyController enemyController;
 
+    [SerializeField] GameObject enemy;
+
     /// <summary>
     /// Drop Loot when dead.
     /// </summary>
     [SerializeField] LootTable loot;
 
-
     [Header("Death Signals")]
     [SerializeField] SignalSender roomSignal;
-
-    [SerializeField] GameObject enemy;
-
 
     private void OnEnable()
     {
@@ -38,7 +36,6 @@ public class EnemyHealthManager : GenericHealthSystem
             DropLoot();
             roomSignal.Raise();
             enemy.SetActive(false);
-            
         }
        
     }
@@ -59,5 +56,4 @@ public class EnemyHealthManager : GenericHealthSystem
             }
         }
     }
-
 }
