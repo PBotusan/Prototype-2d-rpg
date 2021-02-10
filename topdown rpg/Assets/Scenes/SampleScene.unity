@@ -47872,6 +47872,11 @@ PrefabInstance:
       propertyPath: knockback
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 8398626705110309208, guid: fc82c64e9314f1e46bd2a2df4cc0bf76,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc82c64e9314f1e46bd2a2df4cc0bf76, type: 3}
 --- !u!114 &2989259244207408021 stripped
@@ -48057,6 +48062,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2473476063488192766, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: otherTag
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 4120402396139844260, guid: 46043ff449988f94c8884c755454655c,
         type: 3}
       propertyPath: m_Name
@@ -48132,11 +48142,6 @@ PrefabInstance:
       propertyPath: staminaManager
       value: 
       objectReference: {fileID: 1357775698}
-    - target: {fileID: 8192779974425995536, guid: 46043ff449988f94c8884c755454655c,
-        type: 3}
-      propertyPath: m_Layer
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 3168180587007008311, guid: 46043ff449988f94c8884c755454655c,
         type: 3}
       propertyPath: projectile
@@ -48220,6 +48225,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8192779974425995536, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1136084624549131056, guid: 46043ff449988f94c8884c755454655c,
         type: 3}
       propertyPath: m_Layer
@@ -48258,6 +48268,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 7694600757214396050, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4789379951845968975, guid: 46043ff449988f94c8884c755454655c,
         type: 3}
       propertyPath: m_Layer
@@ -48291,7 +48306,7 @@ PrefabInstance:
     - target: {fileID: 5635665899539775692, guid: 46043ff449988f94c8884c755454655c,
         type: 3}
       propertyPath: knockback
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5163921981690138274, guid: 46043ff449988f94c8884c755454655c,
         type: 3}

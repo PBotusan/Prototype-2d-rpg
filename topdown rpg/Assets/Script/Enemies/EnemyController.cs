@@ -48,7 +48,7 @@ public class EnemyController : MonoBehaviour
     /// <summary>
     /// Enemy health
     /// </summary>
-    protected float health;
+    //protected float health;
 
     /// <summary>
     /// Damage done by enemy
@@ -71,20 +71,20 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     protected float amount;
 
-    /// <summary>
+    ///// <summary>
     /// Drop Loot when dead.
     /// </summary>
-    [SerializeField] LootTable loot;
+    //[SerializeField] LootTable loot;
 
-    [Header("Death Signals")]
-    [SerializeField] SignalSender roomSignal;
+    //[Header("Death Signals")]
+    //[SerializeField] SignalSender roomSignal;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth.InitialValue;
+        //health = maxHealth.InitialValue;
 
         target = FindObjectOfType<PlayerController>().transform;
         enemyRigidbody = GetComponent<Rigidbody2D>();
@@ -98,14 +98,14 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        TakeDamage(amount);
+        //TakeDamage(amount);
     }
 
-    private void OnEnable()
+    /*private void OnEnable()
     {
         health = maxHealth.InitialValue;
         currentState = EnemyState.idle;
-    }
+    }*/
 
     /// <summary>
     /// calculates the difference between enemy and player.
@@ -186,7 +186,7 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    /// <summary>
+    /*/// <summary>
     /// Used to take damage, and disables gameobject when health is below 0.
     /// </summary>
     /// <param name="amount"></param>
@@ -201,9 +201,9 @@ public class EnemyController : MonoBehaviour
             roomSignal.Raise();
             gameObject.SetActive(false);
         }
-    }
+    }*/
 
-
+/*
     private void DropLoot()
     {
         if (loot != null)
@@ -214,6 +214,6 @@ public class EnemyController : MonoBehaviour
                 Instantiate(current.gameObject, transform.position, Quaternion.identity);
             }
         }
-    }
+    }*/
 }
 

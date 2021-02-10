@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxhealth: {fileID: 11400000, guid: 8e5d12f29e0a86f49ace524191609c13, type: 2}
+  heartContainer: {fileID: 0}
   currentHealth: 0
   healthSignal: {fileID: 11400000, guid: d31f6b8a37a0a114b8c36bba6a936982, type: 2}
 --- !u!1 &1136084624549131056
@@ -672,6 +673,7 @@ GameObject:
   - component: {fileID: 6598732523017356545}
   - component: {fileID: 7865033385715196046}
   - component: {fileID: 5635665899539775692}
+  - component: {fileID: 2473476063488192766}
   m_Layer: 0
   m_Name: Sword
   m_TagString: PlayerSword
@@ -793,8 +795,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockback: 2
-  damageAmount: 1
   time: 0.25
+--- !u!114 &2473476063488192766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7694600757214396050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57613cbbe06e8964cbb7e6161b98b06e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 1
+  otherTag: 
 --- !u!1 &8192779974425995536
 GameObject:
   m_ObjectHideFlags: 0

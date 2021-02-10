@@ -14,11 +14,38 @@ public class GenericDamageSystem : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(otherTag) && collision.isTrigger)
         {
-            GenericHealthSystem damageCollisionObject = collision.GetComponent<GenericHealthSystem>();
-            if (damageCollisionObject)
+
+            if (otherTag == "Player")
             {
-                damageCollisionObject.Damage(amount);
+                GenericHealthSystem damageCollisionObject = collision.GetComponent<GenericHealthSystem>();
+                DamagePlayer(damageCollisionObject);
+
             }
+            else
+            {
+                EnemyHealthManager damageCollisionObject = collision.GetComponent<EnemyHealthManager>();
+                DamageEnemy(damageCollisionObject);
+            }
+
+           
+        }
+    }
+
+    void DamagePlayer(GenericHealthSystem _damageCollisionObject)
+    {
+        Debug.Log("damageCollisionobject = " + _damageCollisionObject);
+        if (_damageCollisionObject)
+        {
+            _damageCollisionObject.Damage(amount);
+        }
+    }
+
+    void DamageEnemy(EnemyHealthManager _damageCollisionObject)
+    {
+        Debug.Log("damageCollisionobject = " + _damageCollisionObject);
+        if (_damageCollisionObject)
+        {
+            _damageCollisionObject.Damage(amount);
         }
     }
 }
