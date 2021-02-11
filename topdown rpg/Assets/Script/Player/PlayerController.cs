@@ -11,7 +11,8 @@ public enum PlayerState
     run,
     attack,
     interact,
-    stagger
+    stagger,
+    ability
 }
 
 public class PlayerController : MonoBehaviour
@@ -20,7 +21,6 @@ public class PlayerController : MonoBehaviour
     /// The current state of the player
     /// </summary>
     public PlayerState currentPlayerState;
-   
 
     /// <summary>
     /// startingpos of player when starting the game
@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     [SerializeField] Rigidbody2D playerRigidbody;
 
+    public Rigidbody2D PlayerRigidbody { get {return playerRigidbody; } set { playerRigidbody = value; } }
+
     [SerializeField] StaminaManager staminaManager;
 
     /// <summary>
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float playerSpeed = 5f;
 
     [SerializeField] Animator animator;
+
+    public Animator Animator { get { return animator; } set { animator = value; } }
 
     /// <summary>
     /// playerspeed used to revert back when it is changed.
@@ -54,7 +58,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Inventory playerInventory;
     [SerializeField] SpriteRenderer recievedItemSprite;
 
-
+    //split
     [SerializeField] Color flashColor;
     [SerializeField] Color regularColor;
     [SerializeField] float flashDuration;
@@ -182,7 +186,7 @@ public class PlayerController : MonoBehaviour
         playerSpeed = oldPlayerSpeed;
     }
 
-
+    //split
     public void RaiseItem()
     {
         if (playerInventory.CurrentItem != null)
@@ -203,6 +207,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //split
     /// <summary>
     /// starts the coroutine.
     /// </summary>
@@ -234,6 +239,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //split
     private IEnumerator FlashCoroutine()
     {
         int temp = 0;

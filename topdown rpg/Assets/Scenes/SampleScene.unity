@@ -39268,7 +39268,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.9448124, y: 1}
+    m_SensorSize: {x: 2.0408163, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -47626,6 +47626,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -36.30005
       objectReference: {fileID: 0}
+    - target: {fileID: 3194715576446368733, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3194715576446368734, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6775526919616414323, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6775526919616414323, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6775526919616414323, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000000041443855
+      objectReference: {fileID: 0}
+    - target: {fileID: 6775526919616414323, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -75.7
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 250833170448434778, guid: f0b7e0d77d32efd45a7ee7409e702234, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f0b7e0d77d32efd45a7ee7409e702234, type: 3}
@@ -48062,11 +48092,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2473476063488192766, guid: 46043ff449988f94c8884c755454655c,
-        type: 3}
-      propertyPath: otherTag
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: 4120402396139844260, guid: 46043ff449988f94c8884c755454655c,
         type: 3}
       propertyPath: m_Name
@@ -48170,6 +48195,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 7e47ae7e18622db44b983169b59602a3,
         type: 2}
+    - target: {fileID: 3168180587007008311, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: genericAbility
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f5df0aa3161ddb4692d7d8c47aedd8b,
+        type: 2}
+    - target: {fileID: 3168180587007008311, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: currentAbility
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f5df0aa3161ddb4692d7d8c47aedd8b,
+        type: 2}
     - target: {fileID: 4909564599687124447, guid: 46043ff449988f94c8884c755454655c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -48224,6 +48261,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2473476063488192766, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: otherTag
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8192779974425995536, guid: 46043ff449988f94c8884c755454655c,
         type: 3}
