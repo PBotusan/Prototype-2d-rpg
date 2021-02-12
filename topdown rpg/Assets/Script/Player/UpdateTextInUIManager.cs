@@ -15,25 +15,30 @@ public class UpdateTextInUIManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI uiTextArrows;
     [SerializeField] TextMeshProUGUI uiTextBombs;
 
+
+    [SerializeField] InventoryItem coins;
+    [SerializeField] InventoryItem arrows;
+    [SerializeField] InventoryItem bombs;
+
     private void Start()
     {
-        uiTextCoin.text = "" + playerInventory.Coins;
-        uiTextArrows.text = "" + playerInventory.Arrows;
-        uiTextBombs.text = "" + playerInventory.Bombs;
+        uiTextCoin.text = "" + coins.NumberHold;
+        uiTextArrows.text = "" + arrows.NumberHold;
+        uiTextBombs.text = "" + bombs.NumberHold;
     }
 
     public void UpdateCoinText()
     {
-        uiTextCoin.text = "" + playerInventory.Coins;
+        uiTextCoin.text = "" + coins.NumberHold;
     }
 
     public void UpdateArrowText()
     {
-        uiTextArrows.text = "" + playerInventory.Arrows;
+        uiTextArrows.text = "" + arrows.NumberHold;
     }
 
     public void UpdateBombText()
     {
-        uiTextBombs.text = "" + playerInventory.Bombs;
+        uiTextBombs.text = "" + bombs.NumberHold;
     }
 }

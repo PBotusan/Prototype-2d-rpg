@@ -21,19 +21,21 @@ public class Inventory : ScriptableObject
     /// </summary>
     [SerializeField] int numberOfKeys;
 
-    [Header("Items")]
-    [SerializeField] int coins;
-    [SerializeField] int bombs;
-    [SerializeField] int arrows;
+    //  [Header("Items")]
+    // [SerializeField] int coins;
+    // [SerializeField] int bombs;
+    // [SerializeField] int arrows;
+
+   //  public int Coins { get { return coins; } set { coins = value; } }
+    //  public int Bombs { get { return bombs; } set { bombs = value; } }
+    //public int Arrows { get { return arrows; } set { arrows = value; } }
 
 
-    public Item CurrentItem { get { return currentItem; } set { currentItem = value; } }
-    public List<Item> Items { get { return items; } }
-    public int NumberOfKeys { get { return numberOfKeys; } set { numberOfKeys = value; } }
+   public Item CurrentItem { get { return currentItem; } set { currentItem = value; } }
+   public List<Item> Items { get { return items; } }
+   public int NumberOfKeys { get { return numberOfKeys; } set { numberOfKeys = value; } }
 
-    public int Coins { get { return coins; } set { coins = value; } }
-    public int Bombs { get { return bombs; } set { bombs = value; } }
-    public int Arrows { get { return arrows; } set { arrows = value; } }
+
 
 
     /// <summary>

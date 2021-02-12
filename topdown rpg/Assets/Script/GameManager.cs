@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Reset Hearts");
     }
 
-    public void ResetInventory()
+    /*public void ResetInventory()
     {
         inventory.Coins = 0;
         inventory.Arrows = 0;
@@ -101,5 +101,5 @@ public class GameManager : MonoBehaviour
         inventory.NumberOfKeys = 0;
 
         Debug.Log("Reset Inventory");
-    }
+    }*/
 }

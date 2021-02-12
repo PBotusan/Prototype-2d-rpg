@@ -9,7 +9,7 @@ public class CoinPickUp : PickUpController
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
             //add coin to inventory
-            playerInventory.Coins += 1;
+            //playerInventory.Coins += 1;
             PickUpSignal.Raise();
             Destroy(this.gameObject); //destroy after pickup
         }

@@ -7,7 +7,9 @@ public class ThrowBomb : MonoBehaviour
     /// Instantiate the bomb.
     /// </summary>
     [SerializeField] GameObject bomb;
-    [SerializeField] Inventory playerInventory;
+
+    [SerializeField] PlayerInventory playerInventory;
+    [SerializeField] InventoryItem item;
 
     [Header("Signals")]
     /// <summary>
@@ -33,15 +35,22 @@ public class ThrowBomb : MonoBehaviour
     {
         if (Input.GetButtonDown("ThrowBomb"))
         {
-            if(playerInventory.Bombs > 0)
-                InstantiateBomb();
+            if (playerInventory.CurrentInventory.Contains(item))
+            {
+                if (item.NumberHold > 0)
+                {
+                    InstantiateBomb();
+                }
+            }
+           // if (playerInventory.CurrentInventory. > 0)
+               // InstantiateBomb();
         }
     }
 
     private void InstantiateBomb()
     {
         Instantiate(bomb.gameObject, transform.position, Quaternion.identity);
-        playerInventory.Bombs -= 1;
+        item.NumberHold -= 1;
         UpdateBombUI.Raise();
     }
 }

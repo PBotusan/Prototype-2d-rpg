@@ -12,7 +12,6 @@ public class PlayerAttackController : MonoBehaviour
     /// </summary>
     [SerializeField] Animator animator;
 
-
     /// <summary>
     /// prefab that stores the arrow
     /// </summary>
@@ -35,35 +34,33 @@ public class PlayerAttackController : MonoBehaviour
 
     private Vector2 facingDirection = Vector2.zero;
 
+    [SerializeField] InventoryItem arrrowItem;
+
     /// <summary>
     /// Puts the input in variable.
     /// </summary>
     bool swordAttack;
-
     /// <summary>
     /// timer used for attack
     /// </summary>
     float attackTimer = 0.25f;
-
-
     /// <summary>
     /// Is attacking used to set the bool of the animator
     /// </summary>
     public bool isAttacking = false;
-
-
-
     /// <summary>
     /// Stores the attack type bow/sword
     /// </summary>
     string attackType;
 
 
+
+
     [Header("PlayerSignals")]
     /// <summary>
     /// Use signal to decrease Stamina
     /// </summary>
-    [SerializeField] SignalSender decreaseStamina;
+   // [SerializeField] SignalSender decreaseStamina;
     [SerializeField] SignalSender UpdateArrowUI;
 
     /// <summary>
@@ -73,8 +70,6 @@ public class PlayerAttackController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         playerController = GetComponent<PlayerController>();
-        //playerInventory = GetComponent<Inventory>();
-        // find prefab of arrow
     }
 
     /// <summary>
@@ -92,13 +87,13 @@ public class PlayerAttackController : MonoBehaviour
             && playerController.currentPlayerState != PlayerState.stagger)
             StartCoroutine(AttackAnimation(attackType = "IsAttacking"));
 
-        if (Input.GetButtonDown("Ability1"))
+      /*  if (Input.GetButtonDown("Ability1"))
         {
             if (currentAbility)
             {
                 StartCoroutine(Ability1Coroutine(currentAbility.Duration));
             }
-        }
+        }*/
 
        if (Input.GetButtonDown("RangedAttack") && playerController.currentPlayerState != PlayerState.attack
             && playerController.currentPlayerState != PlayerState.stagger)
@@ -152,11 +147,11 @@ public class PlayerAttackController : MonoBehaviour
     private void InstantiateArrow()
     {
         // if player has enough stamina, shoot arrow.
-        if (staminaManager.currentStamina > 5 && playerInventory.Arrows > 0)
+        if (staminaManager.currentStamina > 5 && arrrowItem.NumberHold > 0)
         {
             var amountOfStamina = 30;
             staminaManager.DecreaseStamina(amountOfStamina);
-            playerInventory.Arrows -= 1;
+            arrrowItem.NumberHold -= 1;
             UpdateArrowUI.Raise();
 
 
