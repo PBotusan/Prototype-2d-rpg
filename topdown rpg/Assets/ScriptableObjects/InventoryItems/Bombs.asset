@@ -18,6 +18,7 @@ MonoBehaviour:
   numberHold: 0
   usable: 0
   unique: 0
+  isHidden: 0
   unityEvent:
     m_PersistentCalls:
       m_Calls: []

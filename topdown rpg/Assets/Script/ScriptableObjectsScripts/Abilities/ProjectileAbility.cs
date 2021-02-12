@@ -7,6 +7,9 @@ public class ProjectileAbility : GenericAbility
 {
     [SerializeField] GameObject projectile;
 
+    [SerializeField] float staminaCost;
+    [SerializeField] FloatValue playerStamina;
+
     public override void Ability(Vector2 playerPos, Vector2 playerFacingDirection, Rigidbody2D playerRigidBody = null)
     {
         float facingRotation = Mathf.Atan2(playerFacingDirection.y, playerFacingDirection.x)*Mathf.Rad2Deg;

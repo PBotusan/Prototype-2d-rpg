@@ -155,14 +155,14 @@ public class PlayerController : MonoBehaviour
 
     private void checkIfPlayerCanRun()
     {
-        if (Input.GetButton("Run"))
+        if (Input.GetAxis("Run") == 1 )
         {
             currentPlayerState = PlayerState.run;
  
             if (staminaManager.currentStamina > 5 && currentPlayerState == PlayerState.run)
             {
                 playerSpeed = 8f;
-                staminaManager.DecreaseStamina(1f);
+                staminaManager.DecreaseStamina(2f);
             }
             if (staminaManager.currentStamina < 5)
             {
@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
                 playerSpeed = oldPlayerSpeed;
             }
         }
-        else if (Input.GetButtonUp("Run"))
+        else if (Input.GetAxis("Run") == 0)
         {
             playerSpeed = oldPlayerSpeed;
         }

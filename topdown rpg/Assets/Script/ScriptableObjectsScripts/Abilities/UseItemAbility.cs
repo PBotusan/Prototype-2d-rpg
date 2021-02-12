@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ability : MonoBehaviour
+[CreateAssetMenu(menuName = "Scriptable Object/Abilities/Usable Abilty", fileName = "New Usable Ability")]
+public class UseItemAbility : GenericAbility
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] InventoryItem useItem;
+
+    public override void Ability()
     {
-        
+        /*ThrowBomb temp = placeObject.GetComponent<ThrowBomb>();
+        if (temp)
+        {
+            temp.Setup(playerPos);
+        }*/
+        Debug.Log("Use Potion = " + useItem.name + " " + useItem.ItemDescription);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

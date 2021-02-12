@@ -28,9 +28,7 @@ public class PlayerAttackController : MonoBehaviour
     /// <summary>
     /// Used to instantiate arrow.
     /// </summary>
-    [SerializeField] GameObject projectile;
-
-    [SerializeField] GenericAbility currentAbility;
+    private GameObject projectile;
 
     private Vector2 facingDirection = Vector2.zero;
 
@@ -52,9 +50,6 @@ public class PlayerAttackController : MonoBehaviour
     /// Stores the attack type bow/sword
     /// </summary>
     string attackType;
-
-
-
 
     [Header("PlayerSignals")]
     /// <summary>
@@ -86,14 +81,6 @@ public class PlayerAttackController : MonoBehaviour
         if (Input.GetButtonDown("SwordAttack") && playerController.currentPlayerState != PlayerState.attack
             && playerController.currentPlayerState != PlayerState.stagger)
             StartCoroutine(AttackAnimation(attackType = "IsAttacking"));
-
-      /*  if (Input.GetButtonDown("Ability1"))
-        {
-            if (currentAbility)
-            {
-                StartCoroutine(Ability1Coroutine(currentAbility.Duration));
-            }
-        }*/
 
        if (Input.GetButtonDown("RangedAttack") && playerController.currentPlayerState != PlayerState.attack
             && playerController.currentPlayerState != PlayerState.stagger)
@@ -183,15 +170,6 @@ public class PlayerAttackController : MonoBehaviour
         }
 
         playerController.RevertPlayerSpeed();
-    }
-
-    public IEnumerator Ability1Coroutine(float abilityDuration)
-    {
-        playerController.currentPlayerState = PlayerState.ability;
-       
-
-        yield return new WaitForSeconds(abilityDuration);
-        playerController.currentPlayerState = PlayerState.idle;
     }
 }
 

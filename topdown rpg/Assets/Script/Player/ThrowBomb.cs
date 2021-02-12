@@ -25,14 +25,18 @@ public class ThrowBomb : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        PlayerInput();
-    }
 
-    private void PlayerInput()
+    public void Setup(Vector2 playerPos)
+
     {
+        if (playerInventory.CurrentInventory.Contains(item))
+        {
+            if (item.NumberHold > 0)
+            {
+                InstantiateBomb(playerPos);
+            }
+        }
+        /*
         if (Input.GetButtonDown("ThrowBomb"))
         {
             if (playerInventory.CurrentInventory.Contains(item))
@@ -44,12 +48,12 @@ public class ThrowBomb : MonoBehaviour
             }
            // if (playerInventory.CurrentInventory. > 0)
                // InstantiateBomb();
-        }
+        }*/
     }
 
-    private void InstantiateBomb()
+    private void InstantiateBomb(Vector2 playerPos)
     {
-        Instantiate(bomb.gameObject, transform.position, Quaternion.identity);
+        Instantiate(bomb.gameObject, playerPos, Quaternion.identity);
         item.NumberHold -= 1;
         UpdateBombUI.Raise();
     }

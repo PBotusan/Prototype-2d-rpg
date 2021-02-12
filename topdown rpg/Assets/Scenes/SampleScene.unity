@@ -48426,6 +48426,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: af5a55a8c01cf8647aaa71437e24949d,
         type: 2}
+    - target: {fileID: 3168180587007008311, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: currentAbility
+      value: 
+      objectReference: {fileID: 11400000, guid: 9e6b9c5b02f76944fb963893d6f293f6,
+        type: 2}
     - target: {fileID: 4909564599687124447, guid: 46043ff449988f94c8884c755454655c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -48598,6 +48604,34 @@ PrefabInstance:
       propertyPath: item
       value: 
       objectReference: {fileID: 11400000, guid: 7712f35ed30f5ee4183f92a6b5d9124d,
+        type: 2}
+    - target: {fileID: 6655137397888525611, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619187174372557694, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: abilityNames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619187174372557694, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: abilityNames.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9e6b9c5b02f76944fb963893d6f293f6,
+        type: 2}
+    - target: {fileID: 7619187174372557694, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: abilityNames.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: c18309af03c26924290cbda8bca55549,
+        type: 2}
+    - target: {fileID: 7619187174372557694, guid: 46043ff449988f94c8884c755454655c,
+        type: 3}
+      propertyPath: abilityNames.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f276205430a1e345858b26cb0f16202,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46043ff449988f94c8884c755454655c, type: 3}
