@@ -492,12 +492,13 @@ MonoBehaviour:
   animator: {fileID: 8462041137585583377}
   arrowPrefab: {fileID: 2865602176492065535, guid: f03b9ff753a5849439bee7df340bd7d2,
     type: 3}
-  playerInventory: {fileID: 0}
+  playerInventory: {fileID: 11400000, guid: de9109ab53aa9d7498222ccc2d6586c4, type: 2}
   staminaManager: {fileID: 0}
   projectile: {fileID: 0}
+  currentAbility: {fileID: 11400000, guid: 4f5df0aa3161ddb4692d7d8c47aedd8b, type: 2}
   isAttacking: 0
-  decreaseStamina: {fileID: 0}
-  UpdateArrowUI: {fileID: 0}
+  decreaseStamina: {fileID: 11400000, guid: 51414ef597377a8428ad524600274505, type: 2}
+  UpdateArrowUI: {fileID: 11400000, guid: 7e47ae7e18622db44b983169b59602a3, type: 2}
 --- !u!61 &4906673085928201155
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -579,7 +580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ImpulseDefinition:
     m_ImpulseChannel: 1
-    m_RawSignal: {fileID: 0}
+    m_RawSignal: {fileID: 11400000, guid: 8a4221be20d2cdb43af12a38f86b173b, type: 2}
     m_AmplitudeGain: 1
     m_FrequencyGain: 1
     m_RepeatMode: 0
@@ -609,7 +610,7 @@ MonoBehaviour:
     m_PropagationSpeed: 343
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 2048
   m_IgnoreTag: 
   m_UseImpactDirection: 0
   m_ScaleImpactWithMass: 0
@@ -628,7 +629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bomb: {fileID: 8838396669202959265, guid: 3f0220ac688ccc24bb8464466f57318f, type: 3}
   playerInventory: {fileID: 11400000, guid: de9109ab53aa9d7498222ccc2d6586c4, type: 2}
-  UpdateBombUI: {fileID: 0}
+  UpdateBombUI: {fileID: 11400000, guid: d4fbe6d8f055d0a4389b4f25baea6d42, type: 2}
 --- !u!1 &4789379951845968975
 GameObject:
   m_ObjectHideFlags: 0

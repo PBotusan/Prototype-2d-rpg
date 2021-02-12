@@ -37,7 +37,7 @@ public class InventoryManager : MonoBehaviour
         {
             for (int i = 0; i < playerInventory.CurrentInventory.Count; i++)
             {
-                if (playerInventory.CurrentInventory[i].NumberHold > 0)// make with few items that can remain. playerInventory.CurrentInventory[i].itemname == "itemname" 
+                if (playerInventory.CurrentInventory[i].NumberHold > 0 && !playerInventory.CurrentInventory[i].IsHidden)// make with few items that can remain. playerInventory.CurrentInventory[i].itemname == "itemname" 
                 {
                     GameObject temp = Instantiate(inventorySlot, inventoryPanel.transform.position, Quaternion.identity);
                     temp.transform.SetParent(inventoryPanel.transform);

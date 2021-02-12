@@ -9,8 +9,11 @@ public class InventoryItem : ScriptableObject
     [SerializeField] string itemDescription;
     [SerializeField] Sprite itemImage;
     [SerializeField] int numberHold;
+
     [SerializeField] bool usable;
     [SerializeField] bool unique;
+    [SerializeField] bool isHidden;
+
     [SerializeField] UnityEvent unityEvent;
 
     public string ItemName { get { return itemName; } set { itemName = value; } }
@@ -19,6 +22,9 @@ public class InventoryItem : ScriptableObject
     public int NumberHold { get { return numberHold; } set { numberHold = value; } }
     public bool Usable { get { return usable; } set { usable = value; } }
     public bool Unique { get { return unique; } set { unique = value; } }
+    public bool IsHidden { get { return isHidden; } set { isHidden = value; } }
+
+
     public UnityEvent UnityEvent { get { return unityEvent; } set { unityEvent = value; } }
 
 
@@ -36,10 +42,5 @@ public class InventoryItem : ScriptableObject
             numberHold = 0;
         }
     }
-
-    
-
-
-
 
 }
