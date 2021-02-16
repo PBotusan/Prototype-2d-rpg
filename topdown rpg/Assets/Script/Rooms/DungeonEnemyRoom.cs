@@ -8,6 +8,8 @@ public class DungeonEnemyRoom : Room
     [SerializeField] Door[] doors;
     [SerializeField] GameObject door;
 
+    int count;
+
     /// <summary>
     /// Check if the enemies are still alive.
     /// </summary>
@@ -16,12 +18,17 @@ public class DungeonEnemyRoom : Room
         for (int i = 0; i < enemies.Length; i++)
         {
             //if enemies are active do nothing, if not open the door again.
-            if (enemies[i].gameObject.activeInHierarchy && i < enemies.Length - 1)
+            if (enemies[i].gameObject.activeInHierarchy && i < enemies.Length)
             {
+                count += 1;
+                if (count == enemies.Length)
+                {
+                    OpenDoors();
+                }
                 return;
             }
         }
-        OpenDoors();
+        
     }
 
     /// <summary>
@@ -45,6 +52,7 @@ public class DungeonEnemyRoom : Room
     private void OpenDoors()
     {
         door.SetActive(false);
+        count = 0; // reset count for the enemy door, reset when entering again.
     }
 
     //==================================Overrides from Room Class=========================================\\

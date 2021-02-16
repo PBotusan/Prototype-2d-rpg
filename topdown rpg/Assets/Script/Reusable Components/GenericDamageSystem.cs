@@ -21,13 +21,15 @@ public class GenericDamageSystem : MonoBehaviour
                 DamagePlayer(damageCollisionObject);
 
             }
-            else
+            else if (otherTag == "Enemy")
             {
                 EnemyHealthManager damageCollisionObject = collision.GetComponent<EnemyHealthManager>();
                 DamageEnemy(damageCollisionObject);
             }
-
-           
+            else
+            {
+                return;
+            }        
         }
     }
 

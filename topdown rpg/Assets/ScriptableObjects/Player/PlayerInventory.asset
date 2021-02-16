@@ -15,6 +15,3 @@ MonoBehaviour:
   currentItem: {fileID: 0}
   items: []
   numberOfKeys: 0
-  coins: 0
-  bombs: 0
-  arrows: 0

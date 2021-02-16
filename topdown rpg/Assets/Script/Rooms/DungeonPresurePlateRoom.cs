@@ -7,20 +7,29 @@ public class DungeonPresurePlateRoom : Room
     [SerializeField] Door[] doors;
     [SerializeField] Door door;
 
+    int count = 0;
+
     /// <summary>
     /// Check if the enemies are still alive.
     /// </summary>
     public void CheckSwitches()
     {
+        
         for (int i = 0; i < switches.Length; i++)
         {
-            //if enemies are active do nothing, if not open the door again.
-            if (switches[i].gameObject.activeInHierarchy && i < switches.Length - 1)
+            
+            if (switches[i].gameObject.activeInHierarchy && i < switches.Length)
             {
+                count += 1;
+                if (count == switches.Length)
+                {
+                    OpenDoors();
+                }
                 return;
             }
+            
         }
-        OpenDoors();
+        
     }
 
 

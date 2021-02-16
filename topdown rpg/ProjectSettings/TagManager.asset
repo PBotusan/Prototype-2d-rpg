@@ -13,6 +13,9 @@ TagManager:
   - Destroyed
   - Bomb
   - BombExplosion
+  - Wall
+  - TransistionName
+  - Entrance
   layers:
   - Default
   - TransparentFX
