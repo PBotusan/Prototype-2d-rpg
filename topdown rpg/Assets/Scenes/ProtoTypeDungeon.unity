@@ -1048,7 +1048,7 @@ Transform:
   m_Children:
   - {fileID: 1298557420}
   m_Father: {fileID: 846442037}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &210274063
 PrefabInstance:
@@ -2256,7 +2256,7 @@ Transform:
   m_Children:
   - {fileID: 1713019992}
   m_Father: {fileID: 846442037}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &394948857
 MonoBehaviour:
@@ -3898,7 +3898,7 @@ MonoBehaviour:
   - {fileID: 261938986}
   - {fileID: 1113860722}
   breakables: []
-  virtualCamera: {fileID: 1040983417}
+  virtualCamera: {fileID: 0}
   doors:
   - {fileID: 513376720}
   door: {fileID: 513376720}
@@ -4459,7 +4459,7 @@ MonoBehaviour:
   enemies: []
   switches: []
   breakables: []
-  virtualCamera: {fileID: 929366039}
+  virtualCamera: {fileID: 0}
 --- !u!1001 &823622569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4627,10 +4627,10 @@ Transform:
   - {fileID: 1060693316}
   - {fileID: 1534123657}
   - {fileID: 1458270052}
-  - {fileID: 928188201}
   - {fileID: 946470543}
   - {fileID: 394948856}
   - {fileID: 179574429}
+  - {fileID: 928188201}
   m_Father: {fileID: 947301798}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5574,7 +5574,7 @@ Transform:
   m_Children:
   - {fileID: 1811853080}
   m_Father: {fileID: 846442037}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &946470544
 MonoBehaviour:
@@ -6805,7 +6805,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130011890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.16369717, y: -0.21999998, z: 0}
+  m_LocalPosition: {x: -0.015, y: 0.01, z: 0}
   m_LocalScale: {x: 0.025, y: 0.05, z: 0}
   m_Children:
   - {fileID: 1229329737}
@@ -8867,26 +8867,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3632611685605371511, guid: f0b7e0d77d32efd45a7ee7409e702234,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632611685605371511, guid: f0b7e0d77d32efd45a7ee7409e702234,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632611685605371511, guid: f0b7e0d77d32efd45a7ee7409e702234,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3632611685605371511, guid: f0b7e0d77d32efd45a7ee7409e702234,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1034783609670665727, guid: f0b7e0d77d32efd45a7ee7409e702234,
         type: 3}
       propertyPath: m_Name
@@ -8934,6 +8914,26 @@ PrefabInstance:
     - target: {fileID: 1847754380354513666, guid: f0b7e0d77d32efd45a7ee7409e702234,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3632611685605371511, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3632611685605371511, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3632611685605371511, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3632611685605371511, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8853063038030566565, guid: f0b7e0d77d32efd45a7ee7409e702234,
@@ -10522,7 +10522,7 @@ MonoBehaviour:
   - {fileID: 511222305}
   switches: []
   breakables: []
-  virtualCamera: {fileID: 438818002}
+  virtualCamera: {fileID: 0}
   doors:
   - {fileID: 5034387784424253757}
   door: {fileID: 5034387783751052615}
@@ -14332,7 +14332,7 @@ PrefabInstance:
     - target: {fileID: 3590923680154185924, guid: cfd92ffb8f4e68a4fbe16a654d5b0f23,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3590923680154185924, guid: cfd92ffb8f4e68a4fbe16a654d5b0f23,
         type: 3}
