@@ -9,6 +9,15 @@ public class HeartContainer : PickUpController
 
     [SerializeField] FloatValue playerHealth;
 
+    [SerializeField] BoolValue HeartContainerState;
+
+    private void Start()
+    {
+        if (HeartContainerState.RuntimeValue)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,6 +25,7 @@ public class HeartContainer : PickUpController
         {
             heartContainers.RuntimeValue += 1;
             playerHealth.RuntimeValue = heartContainers.RuntimeValue * 2;
+            HeartContainerState.RuntimeValue = true;
             PickUpSignal.Raise();
             Destroy(gameObject);
         }

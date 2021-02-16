@@ -19,6 +19,7 @@ public class Door : InteractableSystem
     [SerializeField] DoorType thisDoorType;
     [SerializeField] bool open = false;
     [SerializeField] Inventory playerInventory;
+    [SerializeField] BoolValue doorState; 
 
     [Header("Sprite")]
     [SerializeField] SpriteRenderer doorSprite;
@@ -29,6 +30,14 @@ public class Door : InteractableSystem
     [SerializeField] Text dialogText;
     [SerializeField] string dialog;
 
+
+    private void Start()
+    {
+        if (doorState.RuntimeValue)
+        {
+            OpenDoor();
+        }
+    }
 
     /// <summary>
     /// if interact == to the door type do something.
@@ -74,6 +83,7 @@ public class Door : InteractableSystem
                 // delete key from inventory
                 playerInventory.NumberOfKeys--;
                 dialogBox.SetActive(false);
+                doorState.RuntimeValue = true;
                 OpenDoor();
 
             }
@@ -94,6 +104,7 @@ public class Door : InteractableSystem
     /// </summary>
     internal void OpenDoor()
     {
+       
         doorSprite.enabled = false;
         open = true;
         doorCollider.enabled = false;

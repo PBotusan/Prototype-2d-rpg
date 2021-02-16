@@ -20,18 +20,15 @@ public class ExplodeBomb : MonoBehaviour
 
     private void Start()
     {
-       //animator
-       //sound
-       //rigidbody if you want to poush
-       //maybe triggers if you hit it explodes
-
-    }
-
-    private void Update()
-    {
+        //animator
+        //sound
+        //rigidbody if you want to poush
+        //maybe triggers if you hit it explodes
         ExplodeTheBomb();
-       
+
     }
+
+
 
     private void ExplodeTheBomb()
     {
@@ -51,6 +48,6 @@ public class ExplodeBomb : MonoBehaviour
     {
         explosionSprite.SetActive(true);
         //after some time destroy object.
-        Destroy(gameObject, 1);
+        Destroy(gameObject, 0.5f);
     }
 }

@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public static GameManager gameManager;
 
+    public FloatValue playerHealth;
+    public FloatValue heartContainers;
+
     public List<ScriptableObject> objects = new List<ScriptableObject>();
-    public PlayerHealthHUD playerHealthHUD;
-    public Inventory inventory;
+    public PlayerInventory inventory;
 
 
     private void Awake()
@@ -88,18 +90,18 @@ public class GameManager : MonoBehaviour
 
     public void ResetHeartValues()
     {
-        playerHealthHUD.heartContainers.RuntimeValue = 3;
-        playerHealthHUD.playerCurrentHealth.RuntimeValue = 6;
+        heartContainers.RuntimeValue = 3;
+        playerHealth.RuntimeValue = 6;
         Debug.Log("Reset Hearts");
     }
 
-    /*public void ResetInventory()
+    public void ResetInventory()
     {
-        inventory.Coins = 0;
-        inventory.Arrows = 0;
-        inventory.Bombs = 0;
-        inventory.NumberOfKeys = 0;
+        //inventory.CurrentInventory.Contains("Coins") = 0;
+        //inventory.Arrows = 0;
+        //inventory.Bombs = 0;
+       // inventory.NumberOfKeys = 0;
 
         Debug.Log("Reset Inventory");
-    }*/
+    }
 }

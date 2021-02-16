@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Bombs
   itemDescription: Bomb Explodes after few seconds, watch out!
   itemImage: {fileID: 0}
-  numberHold: 0
+  numberHold: 91
   usable: 0
   unique: 0
   isHidden: 0

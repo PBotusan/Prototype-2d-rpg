@@ -25,11 +25,7 @@ public class GenericDamageSystem : MonoBehaviour
             {
                 EnemyHealthManager damageCollisionObject = collision.GetComponent<EnemyHealthManager>();
                 DamageEnemy(damageCollisionObject);
-            }
-            else
-            {
-                return;
-            }        
+            }      
         }
     }
 

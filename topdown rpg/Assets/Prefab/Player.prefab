@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxhealth: {fileID: 11400000, guid: 8e5d12f29e0a86f49ace524191609c13, type: 2}
-  heartContainer: {fileID: 0}
+  heartContainer: {fileID: 11400000, guid: 8e5d12f29e0a86f49ace524191609c13, type: 2}
   currentHealth: 0
   healthSignal: {fileID: 11400000, guid: d31f6b8a37a0a114b8c36bba6a936982, type: 2}
 --- !u!1 &1136084624549131056
@@ -359,6 +359,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentAbility: {fileID: 11400000, guid: 9e6b9c5b02f76944fb963893d6f293f6, type: 2}
   playerController: {fileID: 4909564599912442395}
+  abilityNames:
+  - {fileID: 11400000, guid: 9e6b9c5b02f76944fb963893d6f293f6, type: 2}
+  - {fileID: 11400000, guid: c18309af03c26924290cbda8bca55549, type: 2}
+  - {fileID: 11400000, guid: 1f276205430a1e345858b26cb0f16202, type: 2}
 --- !u!1 &4120402396139844260
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,12 +478,12 @@ MonoBehaviour:
   animator: {fileID: 8462041137585583377}
   playerInventory: {fileID: 11400000, guid: de9109ab53aa9d7498222ccc2d6586c4, type: 2}
   recievedItemSprite: {fileID: 4909564599383681001}
-  flashColor: {r: 0, g: 0, b: 0, a: 0}
-  regularColor: {r: 0, g: 0, b: 0, a: 0}
-  flashDuration: 0
-  numberOfFlashes: 0
-  triggerCollider: {fileID: 0}
-  playerSprite: {fileID: 0}
+  flashColor: {r: 1, g: 0, b: 0, a: 0.63529414}
+  regularColor: {r: 1, g: 1, b: 1, a: 1}
+  flashDuration: 0.07
+  numberOfFlashes: 4
+  triggerCollider: {fileID: 5541755415770077376}
+  playerSprite: {fileID: 5855637977680821195}
   playerHit: {fileID: 11400000, guid: 5e31956aa674a9549bba61801b86fd96, type: 2}
 --- !u!50 &1581277350222074647
 Rigidbody2D:
@@ -838,7 +842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   amount: 1
-  otherTag: 
+  otherTag: Enemy
 --- !u!1 &8192779974425995536
 GameObject:
   m_ObjectHideFlags: 0

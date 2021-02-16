@@ -4659,11 +4659,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.4907252, y: 0.18634422}
-      - {x: -0.4811856, y: 0.19458573}
-      - {x: -0.4851602, y: 0.5037099}
-      - {x: 0.498145, y: 0.51112986}
-      - {x: 0.498145, y: 0.18634422}
+    - - {x: -0.5, y: -0.5}
+      - {x: -0.5, y: 0.5}
+      - {x: 0.5, y: 0.5}
+      - {x: 0.5, y: -0.5}
 --- !u!114 &846442039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4837,6 +4836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hint: {fileID: 861925848}
   Entrance: {fileID: 95907647}
+  DestroyWallState: {fileID: 11400000, guid: a2a548474ab6777409f52a8b7f004dd6, type: 2}
 --- !u!4 &870535953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4283745510216993037, guid: ddac05089ce57b94baf2206b4a21fd4f,
@@ -8867,6 +8867,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3632611685605371511, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3632611685605371511, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3632611685605371511, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3632611685605371511, guid: f0b7e0d77d32efd45a7ee7409e702234,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1034783609670665727, guid: f0b7e0d77d32efd45a7ee7409e702234,
         type: 3}
       propertyPath: m_Name
@@ -14111,6 +14131,12 @@ PrefabInstance:
       propertyPath: thisDoorType
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5106807195715654578, guid: 8390c6993254cfa469e911ddcab2a1fe,
+        type: 3}
+      propertyPath: doorState
+      value: 
+      objectReference: {fileID: 11400000, guid: 96f54b426b463214699d3dbdd51536c3,
+        type: 2}
     - target: {fileID: 8678741396341899868, guid: 8390c6993254cfa469e911ddcab2a1fe,
         type: 3}
       propertyPath: roomSignal
@@ -14354,6 +14380,12 @@ PrefabInstance:
       propertyPath: dialogText
       value: 
       objectReference: {fileID: 122880505}
+    - target: {fileID: 3590923679480984753, guid: cfd92ffb8f4e68a4fbe16a654d5b0f23,
+        type: 3}
+      propertyPath: doorState
+      value: 
+      objectReference: {fileID: 11400000, guid: a2a548474ab6777409f52a8b7f004dd6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfd92ffb8f4e68a4fbe16a654d5b0f23, type: 3}
 --- !u!61 &5034387783751052614
@@ -14539,6 +14571,7 @@ MonoBehaviour:
   thisDoorType: 1
   open: 0
   playerInventory: {fileID: 11400000, guid: de9109ab53aa9d7498222ccc2d6586c4, type: 2}
+  doorState: {fileID: 0}
   doorSprite: {fileID: 5034387783751052617}
   doorCollider: {fileID: 5034387783751052614}
   dialogBox: {fileID: 943700947}

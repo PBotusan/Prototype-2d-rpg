@@ -14,11 +14,23 @@ public class DestroyWall : MonoBehaviour
     /// </summary>
     [SerializeField] GameObject Entrance;
 
+    [SerializeField] BoolValue DestroyWallState;
+
+    private void Start()
+    {
+        if (DestroyWallState.RuntimeValue)
+        {
+            hint.SetActive(false);
+            Entrance.SetActive(true);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("BombExplosion") && collision.isTrigger)
         {
+            DestroyWallState.RuntimeValue = true;
+
             hint.SetActive(false);
             Entrance.SetActive(true);
         }
