@@ -41,7 +41,7 @@ public class ThiefRangedAttack : EnemyController
     /// </summary>
     protected void AttackPlayer()
     {
-        if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
+        if (stateMachine.currentState == EnemyState.IDLE || stateMachine.currentState == EnemyState.PATROL && stateMachine.currentState != EnemyState.STAGGER)
         {
             RangedAttackTimer();
             //run away from player 
@@ -53,7 +53,7 @@ public class ThiefRangedAttack : EnemyController
                 GameObject currentProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
                 currentProjectile.GetComponent<Projectile>().Launch(tempVector);
                 canFire = false;
-                ChangeState(EnemyState.walk);
+                stateMachine.ChangeState(EnemyState.CHASE);
             }
         }
     }

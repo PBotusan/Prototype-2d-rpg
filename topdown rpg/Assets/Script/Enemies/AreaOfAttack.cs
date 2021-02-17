@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AreaOfAttack : EnemyController
 {
@@ -32,12 +30,12 @@ public class AreaOfAttack : EnemyController
     /// </summary>
     protected override void FollowPlayer()
     {
-        if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
+        if (stateMachine.currentState == EnemyState.IDLE || stateMachine.currentState == EnemyState.PATROL && stateMachine.currentState == EnemyState.CHASE || stateMachine.currentState != EnemyState.STAGGER)
         {
             Vector3 temp = Vector3.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
 
             enemyRigidbody.MovePosition(temp);
-            ChangeState(EnemyState.walk);
+            stateMachine.ChangeState(EnemyState.CHASE);
         }
 
     }

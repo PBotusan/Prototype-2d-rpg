@@ -6,21 +6,21 @@ using UnityEngine;
 /// <summary>
 /// Enum that stores all the enemy states.
 /// </summary>
-public enum EnemyState
+/*public enum EnemyState
 {
     idle,
     walk,
     attack,
     stagger,
     dead
-}
+}*/
 
 public class EnemyController : MonoBehaviour
 {
     /// <summary>
     /// The current state of the enemy
     /// </summary>
-    public EnemyState currentState;
+    public StateMachine stateMachine;
 
     /// <summary>
     /// Movementspeed used for walking enemy.
@@ -87,6 +87,8 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
+            //patrol
+            stateMachine.ChangeState(EnemyState.PATROL);
             enemyRigidbody.velocity = Vector2.zero;
         }
 
@@ -97,28 +99,18 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     protected virtual void FollowPlayer()
     {
-        if (currentState == EnemyState.idle || currentState == EnemyState.walk && currentState != EnemyState.stagger)
+        if (stateMachine.currentState == EnemyState.IDLE || stateMachine.currentState == EnemyState.PATROL && stateMachine.currentState == EnemyState.CHASE || stateMachine.currentState != EnemyState.STAGGER)
         {
             Vector3 temp = Vector3.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
 
             enemyRigidbody.MovePosition(temp);
-            ChangeState(EnemyState.walk);
+            stateMachine.ChangeState(EnemyState.CHASE);
         }
 
     }
 
    
-    /// <summary>
-    /// used to change the state of the enemy.
-    /// </summary>
-    /// <param name="newState"></param>
-    protected virtual void ChangeState(EnemyState newState)
-    {
-        if (currentState != newState)
-        {
-            currentState = newState;
-        }
-    }
+
 
 
     /// <summary>
@@ -129,7 +121,7 @@ public class EnemyController : MonoBehaviour
     /// <param name="damageAmount"> amount of damage.</param>
     public void KnockBack(float time)
     {
-        if (currentState != EnemyState.dead)
+        if (stateMachine.currentState != EnemyState.DEAD)
         {
             StartCoroutine(KnockBackTime(time));
         }
@@ -147,7 +139,7 @@ public class EnemyController : MonoBehaviour
         {
             yield return new WaitForSeconds(time);
             enemyRigidbody.velocity = Vector2.zero;
-            currentState = EnemyState.idle;
+            stateMachine.ChangeState(EnemyState.IDLE);
         }
     }
 }

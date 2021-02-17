@@ -20,7 +20,7 @@ public class EnemyHealthManager : GenericHealthSystem
     private void OnEnable()
     {
         CurrentHealth = MaxHealth.InitialValue;
-        enemyController.currentState = EnemyState.idle;
+        enemyController.stateMachine.currentState = EnemyState.IDLE;
     }
 
     public override void Damage(float amount)
@@ -32,7 +32,7 @@ public class EnemyHealthManager : GenericHealthSystem
         if (MaxHealth.RuntimeValue <= 0)
         {
             //particles
-            enemyController.currentState = EnemyState.dead;
+            enemyController.stateMachine.currentState = EnemyState.DEAD;
             DropLoot();
             roomSignal.Raise();
             enemy.SetActive(false);

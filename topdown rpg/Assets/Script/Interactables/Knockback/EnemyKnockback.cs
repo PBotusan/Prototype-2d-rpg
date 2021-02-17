@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
 
 public class EnemyKnockback : KnockbackSystem
@@ -20,7 +18,7 @@ public class EnemyKnockback : KnockbackSystem
                 difference = difference.normalized * knockback;
                 target.DOMove(target.transform.position + difference, time);
 
-                target.GetComponentInParent<EnemyController>().currentState = EnemyState.stagger;
+                target.GetComponentInParent<EnemyController>().stateMachine.ChangeState(EnemyState.STAGGER);
                 collision.GetComponentInParent<EnemyController>().KnockBack(time);
             }
         }
