@@ -78,12 +78,12 @@ public class PlayerAttackController : MonoBehaviour
 
     private void PlayerInput()
     {
-        if (Input.GetButtonDown("SwordAttack") && playerController.currentPlayerState != PlayerState.attack
-            && playerController.currentPlayerState != PlayerState.stagger)
+        if (Input.GetButtonDown("SwordAttack") && playerController.stateMachine.currentPlayerState != PlayerState.attack
+            && playerController.stateMachine.currentPlayerState != PlayerState.stagger)
             StartCoroutine(AttackAnimation(attackType = "IsAttacking"));
 
-       if (Input.GetButtonDown("RangedAttack") && playerController.currentPlayerState != PlayerState.attack
-            && playerController.currentPlayerState != PlayerState.stagger)
+       if (Input.GetButtonDown("RangedAttack") && playerController.stateMachine.currentPlayerState != PlayerState.attack
+            && playerController.stateMachine.currentPlayerState != PlayerState.stagger)
             StartCoroutine(AttackAnimation(attackType = "IsAttackingBow"));
     }
 
@@ -91,18 +91,18 @@ public class PlayerAttackController : MonoBehaviour
 
     private IEnumerator AttackAnimation(string attackType)
     {
-        if (playerController.currentPlayerState != PlayerState.interact)
+        if (playerController.stateMachine.currentPlayerState != PlayerState.interact)
         {
-            playerController.currentPlayerState = PlayerState.attack;
+            playerController.stateMachine.currentPlayerState = PlayerState.attack;
 
             if (attackType == "IsAttackingBow")
             {
                 AttackWithBow();
 
                 yield return new WaitForSecondsRealtime(attackTimer);
-                if (playerController.currentPlayerState != PlayerState.interact)
+                if (playerController.stateMachine.currentPlayerState != PlayerState.interact)
                 {
-                    playerController.currentPlayerState = PlayerState.idle;
+                    playerController.stateMachine.currentPlayerState = PlayerState.idle;
                 }
                 yield break;
             }
@@ -164,9 +164,9 @@ public class PlayerAttackController : MonoBehaviour
 
         animator.SetBool(attackType, isAttacking);
 
-        if (playerController.currentPlayerState != PlayerState.interact)
+        if (playerController.stateMachine.currentPlayerState != PlayerState.interact)
         {
-            playerController.currentPlayerState = PlayerState.idle;
+            playerController.stateMachine.currentPlayerState = PlayerState.idle;
         }
 
         playerController.RevertPlayerSpeed();

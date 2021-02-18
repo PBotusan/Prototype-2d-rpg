@@ -1,26 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-/// <summary>
-/// All the states used by player.
-/// </summary>
-public enum PlayerState
-{
-    idle,
-    walk,
-    run,
-    attack,
-    interact,
-    stagger,
-    ability
-}
 
 public class PlayerController : MonoBehaviour
 {
+
     /// <summary>
-    /// The current state of the player
+    /// The current state of the Player
     /// </summary>
-    public PlayerState currentPlayerState;
+    public PlayerStateMachine stateMachine;
 
     /// <summary>
     /// startingpos of player when starting the game
@@ -90,7 +78,7 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     void Start()
     {
-        currentPlayerState = PlayerState.idle;
+        stateMachine.ChangeState(PlayerState.idle);
         playerRigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
@@ -128,7 +116,7 @@ public class PlayerController : MonoBehaviour
     private void PlayerInput()
     {
         // is the player interacting, add to pauze everything.
-        if (currentPlayerState == PlayerState.interact)
+        if (stateMachine.currentPlayerState == PlayerState.interact)
         {
             return;
         }
@@ -138,15 +126,15 @@ public class PlayerController : MonoBehaviour
 
         if (horizontal == 1 || horizontal == -1 || vertical == 1 || vertical == -1)
         {
-            currentPlayerState = PlayerState.walk;
+            stateMachine.ChangeState(PlayerState.walk);
             animator.SetFloat("OldHorizontalValue", horizontal);
             animator.SetFloat("OldVerticalValue", vertical);
             checkIfPlayerCanRun();
         }
         else if (horizontal == 0 || vertical == 0)
         {
-            if (currentPlayerState != PlayerState.attack && currentPlayerState != PlayerState.stagger)
-                currentPlayerState = PlayerState.idle;
+            if (stateMachine.currentPlayerState != PlayerState.attack && stateMachine.currentPlayerState != PlayerState.stagger)
+                stateMachine.ChangeState(PlayerState.idle);
 
         }
 
@@ -157,16 +145,16 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetAxis("Run") == 1 )
         {
-            currentPlayerState = PlayerState.run;
+            stateMachine.ChangeState(PlayerState.run);
  
-            if (staminaManager.currentStamina > 5 && currentPlayerState == PlayerState.run)
+            if (staminaManager.currentStamina > 5 && stateMachine.currentPlayerState == PlayerState.run)
             {
                 playerSpeed = 8f;
                 staminaManager.DecreaseStamina(2f);
             }
             if (staminaManager.currentStamina < 5)
             {
-                currentPlayerState = PlayerState.walk;
+                stateMachine.ChangeState(PlayerState.walk);
                 playerSpeed = oldPlayerSpeed;
             }
         }
@@ -191,16 +179,16 @@ public class PlayerController : MonoBehaviour
     {
         if (playerInventory.CurrentItem != null)
         {
-            if (currentPlayerState != PlayerState.interact)
+            if (stateMachine.currentPlayerState != PlayerState.interact)
             {
                 //animator hold hands up.
-                currentPlayerState = PlayerState.interact;
+                stateMachine.ChangeState(PlayerState.interact);
                 recievedItemSprite.sprite = playerInventory.CurrentItem.ItemSprite;
             }
             else
             {
                 // set anim to false
-                currentPlayerState = PlayerState.idle;
+                stateMachine.currentPlayerState = PlayerState.idle;
                 recievedItemSprite.sprite = null;
                 playerInventory.CurrentItem = null;
             }
@@ -234,7 +222,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(FlashCoroutine());
             yield return new WaitForSeconds(time);
             //playerRigidbody.velocity = Vector2.zero;
-            currentPlayerState = PlayerState.idle;
+            stateMachine.currentPlayerState = PlayerState.idle;
             Debug.Log("enemy hit player");
         }
     }

@@ -52,7 +52,7 @@ public class PlayerAbilityActive : MonoBehaviour
 
     public IEnumerator AbilityCoroutine(float abilityDuration)
     {
-        playerController.currentPlayerState = PlayerState.ability;
+        playerController.stateMachine.currentPlayerState = PlayerState.ability;
         if (currentAbility.name == "PlaceBomb")
         {
             currentAbility.Ability(playerController.PlayerRigidbody.position);
@@ -63,6 +63,6 @@ public class PlayerAbilityActive : MonoBehaviour
         }
        
         yield return new WaitForSeconds(abilityDuration);
-        playerController.currentPlayerState = PlayerState.idle;
+        playerController.stateMachine.currentPlayerState = PlayerState.idle;
     }
 }

@@ -20,9 +20,9 @@ public class PlayerKnockback : KnockbackSystem
                 difference = difference.normalized * knockback;
                 target.DOMove(target.transform.position + difference, time);
 
-                if (collision.GetComponentInParent<PlayerController>().currentPlayerState != PlayerState.stagger)
+                if (collision.GetComponentInParent<PlayerController>().stateMachine.currentPlayerState != PlayerState.stagger)
                 {
-                    target.GetComponentInParent<PlayerController>().currentPlayerState = PlayerState.stagger;
+                    target.GetComponentInParent<PlayerController>().stateMachine.currentPlayerState = PlayerState.stagger;
                     collision.GetComponentInParent<PlayerController>().KnockBack(time);
                 }
             }

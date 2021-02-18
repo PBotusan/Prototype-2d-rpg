@@ -34,6 +34,7 @@ public class GenericDamageSystem : MonoBehaviour
         Debug.Log("damageCollisionobject = " + _damageCollisionObject);
         if (_damageCollisionObject)
         {
+             //todo
             _damageCollisionObject.Damage(amount);
         }
     }
