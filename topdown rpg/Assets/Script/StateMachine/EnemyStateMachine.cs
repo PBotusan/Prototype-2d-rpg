@@ -12,7 +12,7 @@ public enum EnemyState
     DEAD
 }
 
-public class StateMachine : MonoBehaviour
+public class EnemyStateMachine : MonoBehaviour
 {
     /// <summary>
     /// The current state of the enemy

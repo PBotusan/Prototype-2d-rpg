@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
     /// <summary>
     /// The current state of the enemy
     /// </summary>
-    public StateMachine stateMachine;
+    public EnemyStateMachine stateMachine;
 
     /// <summary>
     /// Movementspeed used for walking enemy.
