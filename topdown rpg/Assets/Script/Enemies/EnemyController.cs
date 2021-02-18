@@ -22,6 +22,8 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     public EnemyStateMachine stateMachine;
 
+    bool patrol = false;
+
     /// <summary>
     /// Movementspeed used for walking enemy.
     /// </summary>
@@ -63,6 +65,7 @@ public class EnemyController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         target = FindObjectOfType<PlayerController>().transform;
         enemyRigidbody = GetComponent<Rigidbody2D>();
     }
