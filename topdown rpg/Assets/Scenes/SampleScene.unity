@@ -26260,6 +26260,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29facdc32d1da6442b13868de8fdf1b3, type: 3}
+--- !u!1 &1266467167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1266467169}
+  - component: {fileID: 1266467168}
+  m_Layer: 0
+  m_Name: Grid
+  m_TagString: Respawn
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1266467168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266467167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88c32f8330c9e0849b7cf094fedbe162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1266467169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266467167}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1269081383 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9184318703437321838, guid: 29facdc32d1da6442b13868de8fdf1b3,
@@ -39008,7 +39051,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.0408163, y: 1}
+    m_SensorSize: {x: 2.0331633, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -42539,6 +42582,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HollowCharger
       objectReference: {fileID: 0}
+    - target: {fileID: 8938158807087975898, guid: cf7d7a0a4d92aff4cac5f36b5364e57c,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1522080115}
     - target: {fileID: 9180964185675616211, guid: cf7d7a0a4d92aff4cac5f36b5364e57c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -42599,11 +42647,6 @@ PrefabInstance:
       propertyPath: enemyController
       value: 
       objectReference: {fileID: 1799133564}
-    - target: {fileID: 8938158807087975898, guid: cf7d7a0a4d92aff4cac5f36b5364e57c,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1522080115}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf7d7a0a4d92aff4cac5f36b5364e57c, type: 3}
 --- !u!4 &2011210705 stripped
