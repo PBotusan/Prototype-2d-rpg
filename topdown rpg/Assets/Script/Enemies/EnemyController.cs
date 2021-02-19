@@ -90,11 +90,16 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            //patrol
-            stateMachine.ChangeState(EnemyState.PATROL);
-            enemyRigidbody.velocity = Vector2.zero;
+            Patrol();
         }
 
+    }
+
+    private void Patrol()
+    {
+        stateMachine.ChangeState(EnemyState.PATROL);
+
+       // enemyRigidbody.velocity = Vector2.zero;
     }
 
     /// <summary>
