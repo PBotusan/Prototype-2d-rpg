@@ -330,7 +330,7 @@ MonoBehaviour:
   maxhealth: {fileID: 11400000, guid: 960494ce57de9be4f8dd1c6725b3c018, type: 2}
   heartContainer: {fileID: 11400000, guid: 5042d459a16c1db499b74668996fa32e, type: 2}
   currentHealth: 0
-  enemyController: {fileID: 0}
+  enemyController: {fileID: 8938158807087975898}
   enemy: {fileID: 7094402370134454771}
   loot: {fileID: 11400000, guid: dedee7620d67c9341b19700218952a45, type: 2}
   roomSignal: {fileID: 11400000, guid: c23929e8dfa244b4c924544c519010ea, type: 2}

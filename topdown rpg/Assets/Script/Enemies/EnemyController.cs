@@ -29,7 +29,6 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     [SerializeField] protected float movementSpeed = 3.5f;
 
-
     /// <summary>
     /// target/player transform, used to follow the player target position.
     /// </summary>
@@ -62,12 +61,13 @@ public class EnemyController : MonoBehaviour
     protected float amount;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
-
         target = FindObjectOfType<PlayerController>().transform;
         enemyRigidbody = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -75,6 +75,8 @@ public class EnemyController : MonoBehaviour
     {
         CalculateDistance();
     }
+
+
 
 
     /// <summary>
@@ -98,7 +100,6 @@ public class EnemyController : MonoBehaviour
     private void Patrol()
     {
         stateMachine.ChangeState(EnemyState.PATROL);
-
        // enemyRigidbody.velocity = Vector2.zero;
     }
 
@@ -110,16 +111,15 @@ public class EnemyController : MonoBehaviour
         if (stateMachine.currentState == EnemyState.IDLE || stateMachine.currentState == EnemyState.PATROL && stateMachine.currentState == EnemyState.CHASE || stateMachine.currentState != EnemyState.STAGGER)
         {
             Vector3 temp = Vector3.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
-
             enemyRigidbody.MovePosition(temp);
+
+           
             stateMachine.ChangeState(EnemyState.CHASE);
         }
 
     }
 
    
-
-
 
     /// <summary>
     /// starts the coroutine.
