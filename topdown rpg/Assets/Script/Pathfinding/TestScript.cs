@@ -3,11 +3,20 @@ using CodeMonkey.Utils;
 
 public class TestScript : MonoBehaviour
 {
-    private Grid grid;
+    private void Start()
+    {
+        Pathfinding pathfinding = new Pathfinding(10, 10);
+    }
+
+}
+
+/*public class TestScript : MonoBehaviour
+{
+    private Grid<int> grid;
 
     private void Start()
     {
-        grid = new Grid(4, 2, 10f, new Vector3(20,0));
+        grid = new Grid<int>(4, 2, 10f, new Vector3(20,0));
     }
 
 
@@ -23,4 +32,4 @@ public class TestScript : MonoBehaviour
             Debug.Log(grid.GetValue(UtilsClass.GetMouseWorldPosition()));
         }
     }
-}
+}*/
