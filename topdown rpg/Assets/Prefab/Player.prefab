@@ -479,11 +479,11 @@ MonoBehaviour:
   animator: {fileID: 8462041137585583377}
   playerInventory: {fileID: 11400000, guid: de9109ab53aa9d7498222ccc2d6586c4, type: 2}
   recievedItemSprite: {fileID: 4909564599383681001}
-  flashColor: {r: 1, g: 0, b: 0, a: 0.63529414}
+  flashColor: {r: 1, g: 0, b: 0, a: 0.7137255}
   regularColor: {r: 1, g: 1, b: 1, a: 1}
   flashDuration: 0.07
   numberOfFlashes: 4
-  triggerCollider: {fileID: 5541755415770077376}
+  triggerCollider: {fileID: 0}
   playerSprite: {fileID: 5855637977680821195}
   playerHit: {fileID: 11400000, guid: 5e31956aa674a9549bba61801b86fd96, type: 2}
 --- !u!50 &1581277350222074647
