@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 972890483735189089}
   - component: {fileID: 4240167863658758687}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hexagon (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 4096595429617956848}
   - component: {fileID: 6390226249773028802}
   - component: {fileID: -4784489988073586989}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6095125242156254280}
   - component: {fileID: 6800194864231685051}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hexagon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6020955746494666832}
   - component: {fileID: 3118186967362449596}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hexagon (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4600931143695863585}
   - component: {fileID: 7532708867147293385}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Hexagon (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

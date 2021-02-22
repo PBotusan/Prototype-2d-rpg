@@ -33,7 +33,7 @@ TagManager:
   - PlayerSword
   - PlayerProjectile
   - Player
-  - 
+  - NotWalkable
   - 
   - 
   - 

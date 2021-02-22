@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Pathfinding;
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -48,7 +48,7 @@ public class EnemyController : MonoBehaviour
     /// float value used as distance for following.
     /// </summary>
     [SerializeField] protected float followDistance = 8;
-   
+
 
     /// <summary>
     /// attackdistance that the enemy stops with following. used to  not come to close to push the player.
@@ -60,6 +60,13 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     protected float amount;
 
+    Pathfinding.Path path;
+    int currentWayPoint = 0;
+    bool reachedEndOfPath = false;
+    public float nextWaypointDistance = 3;
+
+    [SerializeField] Seeker seeker;
+
 
 
     // Start is called before the first frame update
@@ -67,7 +74,25 @@ public class EnemyController : MonoBehaviour
     {
         target = FindObjectOfType<PlayerController>().transform;
         enemyRigidbody = GetComponent<Rigidbody2D>();
+        //seeker = GetComponent<Seeker>();
 
+        InvokeRepeating("UpdatePath", 0f, .5f);
+
+    }
+
+    void UpdatePath()
+    {
+        if (seeker.IsDone())
+            seeker.StartPath(enemyRigidbody.position, target.position, OnPathComplete);
+    }
+
+    private void OnPathComplete(Path path)
+    {
+        if (!path.error)
+        {
+            this.path = path;
+            currentWayPoint = 0;
+        }
     }
 
     // Update is called once per frame
@@ -84,6 +109,21 @@ public class EnemyController : MonoBehaviour
     /// </summary>
     protected virtual void CalculateDistance()
     {
+        if (path == null)
+        {
+            return;
+        }
+
+        if (currentWayPoint >= path.vectorPath.Count)
+        {
+            reachedEndOfPath = true;
+            return;
+        }
+        else
+        {
+            reachedEndOfPath = false;
+        }
+
         var calculateDistance = Vector3.Distance(target.position, transform.position);
 
         if (calculateDistance <= followDistance && calculateDistance > attackDistance)
@@ -100,7 +140,7 @@ public class EnemyController : MonoBehaviour
     private void Patrol()
     {
         stateMachine.ChangeState(EnemyState.PATROL);
-       // enemyRigidbody.velocity = Vector2.zero;
+        
     }
 
     /// <summary>
@@ -110,10 +150,20 @@ public class EnemyController : MonoBehaviour
     {
         if (stateMachine.currentState == EnemyState.IDLE || stateMachine.currentState == EnemyState.PATROL && stateMachine.currentState == EnemyState.CHASE || stateMachine.currentState != EnemyState.STAGGER)
         {
-            Vector3 temp = Vector3.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
-            enemyRigidbody.MovePosition(temp);
+            // Vector3 temp = Vector3.MoveTowards(transform.position, target.position, movementSpeed * Time.deltaTime);
+            //enemyRigidbody.MovePosition(temp);
 
-           
+            Vector2 direction = ((Vector2)path.vectorPath[currentWayPoint] - enemyRigidbody.position).normalized;
+            Vector2 force = direction * movementSpeed * Time.deltaTime;
+
+            enemyRigidbody.AddForce(force);
+
+            float distance = Vector2.Distance(enemyRigidbody.position, path.vectorPath[currentWayPoint]);
+            if (distance < nextWaypointDistance)
+            {
+                currentWayPoint++;
+            }
+
             stateMachine.ChangeState(EnemyState.CHASE);
         }
 

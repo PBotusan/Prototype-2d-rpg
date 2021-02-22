@@ -543,3 +543,7 @@ C:\Users\User\Documents\GitHub\Prototype-2d-rpg\topdown rpg\Temp\bin\Debug\Boo.L
 C:\Users\User\Documents\GitHub\Prototype-2d-rpg\topdown rpg\Temp\bin\Debug\Boo.Lang.Useful.dll
 C:\Users\User\Documents\GitHub\Prototype-2d-rpg\topdown rpg\Temp\bin\Debug\DOTween.dll
 C:\Users\User\Documents\GitHub\Prototype-2d-rpg\topdown rpg\Temp\bin\Debug\DOTween.xml
+C:\Users\User\Documents\GitHub\Prototype-2d-rpg\topdown rpg\Temp\bin\Debug\Pathfinding.Ionic.Zip.Reduced.dll
+C:\Users\User\Documents\GitHub\Prototype-2d-rpg\topdown rpg\Temp\bin\Debug\AstarPathfindingProject.pdb
+C:\Users\User\Documents\GitHub\Prototype-2d-rpg\topdown rpg\Temp\bin\Debug\PackageToolsEditor.pdb
+C:\Users\User\Documents\GitHub\Prototype-2d-rpg\topdown rpg\Temp\bin\Debug\AstarPathfindingProjectEditor.pdb
