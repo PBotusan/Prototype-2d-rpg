@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Arrows for bow
   itemDescription: Arrows for bows.
   itemImage: {fileID: 0}
-  numberHold: 100
+  numberHold: 83
   usable: 0
   unique: 0
   isHidden: 1

@@ -20849,6 +20849,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HollowHuman
       objectReference: {fileID: 0}
+    - target: {fileID: 7094402370134454771, guid: 4403094ffb322df4881efd906776d696,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9180964185675616211, guid: 4403094ffb322df4881efd906776d696,
         type: 3}
       propertyPath: m_LocalPosition.x
